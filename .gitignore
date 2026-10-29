@@ -35,6 +35,7 @@ examples
 scripts
 reports
 benchmarks
+notebooks
 
 # Source and historical assets required by the published documentation.
 !examples/
