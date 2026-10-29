@@ -10,7 +10,7 @@ from .placement import DevicePlan, Placement, assign_devices
 from .timeline import ExecutionTimeline, draw_timeline
 from .visualization import draw_execution, draw_model, draw_schedule, gallery, profile
 
-__version__ = "0.7.0"
+__version__ = "0.7.1"
 __all__ = [
     "ActiveContext",
     "AsyncGraphExecutor",
