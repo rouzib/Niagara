@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="610" viewBox="0 0 1200 610" role="img" aria-labelledby="title desc">
+  <title id="title">Source-region placement</title>
+  <desc id="desc">GPU 0 traces rays, adds lens light and convolves the image. GPU 1 evaluates the source brightness. Ray coordinates and source parameters move to GPU 1; source brightness returns to GPU 0. Gradients cross the same boundary in reverse.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#315a62"/></marker>
+    <marker id="grad" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#8a4f15"/></marker>
+  </defs>
+  <rect width="1200" height="610" rx="18" fill="#fff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#173c42">
+    <text x="48" y="46" font-size="27" font-weight="700">Source-region placement</text>
+    <rect x="45" y="78" width="475" height="400" rx="16" fill="#e5f1fc" stroke="#90b9d8" stroke-width="2"/>
+    <rect x="730" y="78" width="425" height="400" rx="16" fill="#fff0dc" stroke="#d1a568" stroke-width="2"/>
+    <text x="75" y="119" font-size="24" font-weight="700">GPU 0</text>
+    <text x="310" y="119" font-size="20" font-family="monospace">cuda:0</text>
+    <text x="760" y="119" font-size="24" font-weight="700">GPU 1</text>
+    <text x="965" y="119" font-size="20" font-family="monospace">cuda:1</text>
+    <rect x="80" y="155" width="405" height="74" rx="10" fill="#fff" stroke="#90b9d8"/>
+    <text x="282" y="185" text-anchor="middle" font-size="21" font-weight="700">Ray tracing</text>
+    <text x="282" y="213" text-anchor="middle" font-size="17">SIE mass + external shear</text>
+    <rect x="770" y="225" width="345" height="102" rx="10" fill="#fff" stroke="#d1a568"/>
+    <text x="942" y="265" text-anchor="middle" font-size="21" font-weight="700">Source brightness</text>
+    <text x="942" y="297" text-anchor="middle" font-size="18">Sersic profile</text>
+    <rect x="80" y="319" width="405" height="66" rx="10" fill="#fff" stroke="#90b9d8"/>
+    <text x="282" y="359" text-anchor="middle" font-size="21" font-weight="700">Lens light + PSF convolution</text>
+    <path d="M282 385V414" stroke="#315a62" stroke-width="3" marker-end="url(#arrow)"/>
+    <rect x="80" y="418" width="405" height="40" rx="9" fill="#173c42"/>
+    <text x="282" y="445" text-anchor="middle" font-size="19" fill="#fff">Image on cuda:0</text>
+    <path d="M485 192H610V252H770" fill="none" stroke="#315a62" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="617" y="155" text-anchor="middle" font-size="16">Ray coordinates</text>
+    <text x="617" y="176" text-anchor="middle" font-size="16">+ source parameters</text>
+    <path d="M770 301H633V352H485" fill="none" stroke="#315a62" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="628" y="390" text-anchor="middle" font-size="16">Source brightness</text>
+    <path d="M485 438H640V432H942V342" fill="none" stroke="#8a4f15" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#grad)"/>
+    <text x="804" y="461" text-anchor="middle" fill="#8a4f15" font-size="16">Gradient flow</text>
+    <rect x="45" y="511" width="1110" height="63" rx="10" fill="#f2f7f6" stroke="#bdcfca"/>
+    <text x="600" y="537" text-anchor="middle" font-size="18" font-family="monospace">ng.enable(sim, default="cuda:0", modules={"source": "cuda:1"})</text>
+    <text x="600" y="560" text-anchor="middle" font-size="16">One simulator, explicit region homes, ordinary PyTorch gradients</text>
+  </g>
+</svg>

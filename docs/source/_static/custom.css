@@ -1,0 +1,68 @@
+:root {
+  --niagara-teal: #007d68;
+  --niagara-mint: #89dcca;
+  --niagara-slate: #173c42;
+  --pst-color-primary: #007d68;
+}
+html[data-theme="dark"] { --pst-color-primary: #89dcca; }
+@media (min-width: 960px) { .bd-sidebar-primary { max-width: 19rem; } }
+.bd-main .bd-content .bd-article-container { max-width: 1030px; }
+.niagara-logo { background: transparent !important; max-width: 420px; }
+.niagara-lead { font-size: 1.18rem; line-height: 1.65; }
+.sd-card { border-radius: 0.8rem; }
+.sd-card:hover { border-color: var(--niagara-teal); }
+.mermaid svg .flowchart-link,
+.mermaid-container-fullscreen svg .flowchart-link { stroke: #5e7f7a !important; stroke-width: 2px !important; }
+.mermaid svg marker path { fill: #5e7f7a !important; }
+html[data-theme="dark"] .mermaid svg .flowchart-link { stroke: #b8d4cf !important; }
+html[data-theme="dark"] .mermaid svg marker path { fill: #b8d4cf !important; }
+.admonition.note { border-left-color: var(--niagara-teal); }
+table { font-variant-numeric: tabular-nums; }
+.mermaid-container, .mermaid-container-fullscreen { position: relative; }
+.mermaid svg[data-niagara-pan-zoom="true"] { cursor: grab; touch-action: none; user-select: none; }
+.mermaid svg[data-niagara-pan-zoom="true"].is-panning { cursor: grabbing; }
+.mermaid svg[data-niagara-pan-zoom="true"]:focus-visible { outline: 3px solid var(--niagara-teal); }
+.niagara-mermaid-controls {
+  position: absolute; z-index: 8; top: 0.5rem; left: 0.5rem;
+  display: inline-flex; gap: 0.2rem; padding: 0.2rem;
+  border: 1px solid #9bb9b3; border-radius: 0.5rem;
+  background: rgba(255,255,255,0.95);
+}
+.niagara-mermaid-controls button {
+  width: 1.8rem; height: 1.8rem; border: 0; border-radius: 0.25rem;
+  color: #173c42; background: transparent; font-weight: 700;
+}
+.niagara-mermaid-controls button:hover, .niagara-mermaid-controls button:focus-visible {
+  color: white; background: #007d68;
+}
+html[data-theme="dark"] .niagara-mermaid-controls { background: rgba(20,51,59,0.95); }
+html[data-theme="dark"] .niagara-mermaid-controls button { color: #dcf4ed; }
+
+/* Keep the ordinary diagram proportional; the extension's fullscreen canvas
+   retains its own viewport sizing. Top-down flows remain readable at rest. */
+.mermaid-container > pre.mermaid > svg {
+  height: auto !important;
+  min-height: 20rem;
+  max-height: 36rem;
+}
+
+/* Compatibility labels carry text as well as color, so status remains clear
+   for readers using assistive technology or a monochrome display. */
+.compat-status {
+  display: inline-block;
+  padding: 0.1em 0.55em;
+  border: 1px solid currentColor;
+  border-radius: 0.3rem;
+  font-size: 0.84em;
+  font-weight: 700;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+.compat-works { color: #086b49; background: #e0f3ea; }
+.compat-caution { color: #795000; background: #fff2ce; }
+.compat-fails { color: #9c2536; background: #ffeaed; }
+.compat-unverified { color: #4b5260; background: #e9edf3; }
+html[data-theme="dark"] .compat-works { color: #a9f0d3; background: #093b31; }
+html[data-theme="dark"] .compat-caution { color: #ffdc83; background: #503908; }
+html[data-theme="dark"] .compat-fails { color: #ffc5ce; background: #561d28; }
+html[data-theme="dark"] .compat-unverified { color: #d4e0f1; background: #303949; }

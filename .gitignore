@@ -1,0 +1,28 @@
+# Local environments, editor state and Python/build products
+.venv/
+.idea/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage*
+htmlcov/
+build/
+dist/
+docs/build/
+docs/_build/
+.ipynb_checkpoints/
+
+# Reproducible commands remain tracked; local measurements stay out of releases.
+results/
+artifacts/
+profiles/
+agents_scripts/
+reference_wheels/
+*.npz
+*.pt
+*.pth
+*.log
+!docs/reports/**
+

@@ -1,0 +1,423 @@
+{
+  "scope": "Focused direct public-API probes; not exhaustive model compatibility",
+  "online_guides": {
+    "retrieved_utc": "2026-10-27T20:29:29.067504+00:00",
+    "pages": [
+      {
+        "url": "https://caskade.readthedocs.io/en/latest/notebooks/AdvancedGuide.html",
+        "sha256": "7aa523b3d2e6077b4330a60e038271cf5254de2635e2f543f7e3c8d114245ba7",
+        "bytes": 203376,
+        "headers": {
+          "Last-Modified": "Mon, 27 Jul 2026 15:06:55 GMT",
+          "ETag": "W/\"56c725a9983a5df9f8b62ddfb141e491\"",
+          "Content-Type": "text/html; charset=utf-8"
+        }
+      },
+      {
+        "url": "https://caskade.readthedocs.io/en/latest/notebooks/HierarchicalModels.html",
+        "sha256": "7e444b8964d48fbb850f4b4e185175318ee7511d2c5e2d5b0584c4e40b0bde67",
+        "bytes": 106075,
+        "headers": {
+          "Last-Modified": "Mon, 27 Jul 2026 15:06:55 GMT",
+          "ETag": "W/\"72099900fa0f9d8d4b229b040d87244e\"",
+          "Content-Type": "text/html; charset=utf-8"
+        }
+      }
+    ]
+  },
+  "versions": {
+    "caskade": "1.1.5",
+    "niagara": "0.7.0",
+    "torch": "2.12.0+cu126"
+  },
+  "devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "d6b66763-30ad-b999-effc-189e8a805489"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "cf4a6b09-c71f-415a-a9a1-3a1aa62541e9"
+    }
+  ],
+  "released_notebook_sha256": {
+    "hierarchical": "a9eddde9511b11ecca77bd57f3b520cb30867ccecbb70bfdc3ff7a3932251747",
+    "advanced": "e83b3f5004b1d090b0e78a4c3e0a1865569e8bde2f58fc2ed5ede4d11105cdf8"
+  },
+  "runtime_source_sha256": {
+    "src/niagara/__init__.py": "75d9434263768dce39478c15ca1c5600e9caabd0888424682ec1f045636b82fc",
+    "src/niagara/backend.py": "8ff413199eceb25ba7b810414ccd5279aa367d8b58b2662af144599176629b39",
+    "src/niagara/caustics.py": "940ff51b1fc4691dc8f69e7b87aa7d44c8ac59d6cba183f1e94e6f65b76a60c1",
+    "src/niagara/compiler.py": "0c9e487f86e172066ee5b8a37d78a9d58a7a6d9001045972fb3d7b551f94d3c3",
+    "src/niagara/errors.py": "acfd29bf72465cea1497ad96b1585b997c013e6573f8768c0532544fed51e03b",
+    "src/niagara/execution.py": "719338b253e71ea85373b7c2f5a36f1a7afb2e019c68cd098d991d0bc76229ea",
+    "src/niagara/guards.py": "daa8d5b163f0e17405fdf9563370d86e6cd9959d5549ec52077f416124ebb63d",
+    "src/niagara/placement.py": "946f35253347e36e1ff9097a2783b3a1839e510dc886b6698364d21c3d8d0b4a",
+    "src/niagara/replay.py": "0624fd41530b2b3978a33fdce261395d2200a9a37a1a764b1f7656aabd7596b0",
+    "src/niagara/sampling.py": "12977e193bd9b5428d929b8b7208367c6effd7ffc5f2135233f74c5a71e6b31a",
+    "src/niagara/visualization.py": "66aeaa2864a5adb48a3818052b59aacfd358447bdca883ac3f806843ce7d9823"
+  },
+  "checks": {
+    "hierarchical": [
+      {
+        "name": "dynamic_internal_hierarchy",
+        "outcome": "passed",
+        "output_device": "cuda:0",
+        "observed_devices": [
+          "cuda:0",
+          "cuda:1"
+        ],
+        "transfers": {
+          "cuda:0->cuda:1": 4,
+          "cuda:1->cuda:0": 1
+        },
+        "max_value_error": 0.0,
+        "max_gradient_error": 0.0
+      },
+      {
+        "name": "dynamic_nested_outer_vmap",
+        "outcome": "passed",
+        "output_device": "cuda:0",
+        "observed_devices": [
+          "cuda:0",
+          "cuda:1"
+        ],
+        "max_value_error": 0.0,
+        "max_gradient_error": 0.0
+      },
+      {
+        "name": "dynamic_nested_vmap_varying_parameters",
+        "outcome": "passed",
+        "output_device": "cuda:0",
+        "observed_devices": [
+          "cuda:0",
+          "cuda:1"
+        ],
+        "max_value_error": 0.0,
+        "max_gradient_error": 0.0
+      },
+      {
+        "name": "compiled_outer_vmap",
+        "outcome": "passed",
+        "expected_rejection": "GuardError",
+        "message": "Apply transforms before compilation with .transform() or ng.vmap()",
+        "prepared_backend": "cuda_graph"
+      },
+      {
+        "name": "metadata_helper_public_api",
+        "outcome": "passed",
+        "unowned_call": {
+          "status": "passed",
+          "output_device": "cuda:0",
+          "helper_device": "cpu",
+          "helper_enabled": false
+        },
+        "separate_helper_enabled": true,
+        "helper_home": "cuda:1",
+        "output_device": "cuda:0",
+        "helper_calls": 2,
+        "helper_transfers": {
+          "cuda:0->cuda:1": 4,
+          "cuda:1->cuda:0": 1
+        }
+      },
+      {
+        "name": "random_population_size_compilation",
+        "outcome": "passed",
+        "poisson_calls_after_compiled_calls": 1,
+        "poisson_calls_after_native_call": 2,
+        "intended_draws": [
+          3,
+          7
+        ],
+        "program_backend": "cuda_graph",
+        "native_device": "cuda:0",
+        "compiled_replay_max_change": 0.0,
+        "compiled_vs_native_max_abs": 3.21907465181026,
+        "native_max": 5.633380668016933,
+        "interpretation": "Python population size is captured once and remains fixed across replay"
+      }
+    ],
+    "grouped_gradient": {
+      "gaussian_single_device": {
+        "param_shapes": [
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "param_devices": [
+          "cuda:0",
+          "cuda:0"
+        ],
+        "native_gradient_shape": [
+          5,
+          3
+        ],
+        "native_gradient_device": "cuda:0",
+        "native_finite": true,
+        "native_gradient_max_abs": 60.16857504172181,
+        "niagara_outcome": "matched",
+        "niagara_gradient_shape": [
+          5,
+          3
+        ],
+        "niagara_gradient_device": "cuda:0",
+        "niagara_finite": true,
+        "max_abs_gradient_error": 0.0,
+        "observed_calls": [
+          [
+            "Gg",
+            "cuda:0"
+          ],
+          [
+            "Gg",
+            "cuda:0"
+          ]
+        ],
+        "transfers": {}
+      },
+      "combined_split_first_cuda1": {
+        "param_shapes": [
+          [
+            5,
+            3
+          ],
+          [
+            5,
+            1
+          ]
+        ],
+        "param_devices": [
+          "cuda:0",
+          "cuda:0"
+        ],
+        "native_gradient_shape": [
+          5,
+          3
+        ],
+        "native_gradient_device": "cuda:0",
+        "native_finite": true,
+        "native_gradient_max_abs": 30.084287520860904,
+        "niagara_outcome": "error",
+        "error_type": "NotImplementedError",
+        "error": "Cannot access storage of TensorWrapper"
+      }
+    },
+    "direct_child_parameter": [
+      {
+        "mode": "native_gpu",
+        "scalar": true,
+        "routed_child": "direct",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "native_gpu",
+        "scalar": true,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "native_gpu",
+        "scalar": true,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "native_gpu",
+        "scalar": false,
+        "routed_child": "direct",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "native_gpu",
+        "scalar": false,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "native_gpu",
+        "scalar": false,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:0"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": true,
+        "routed_child": "direct",
+        "status": "error",
+        "error": "RuntimeError",
+        "message": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:1!"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": true,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": true,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": false,
+        "routed_child": "direct",
+        "status": "error",
+        "error": "RuntimeError",
+        "message": "Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:1!"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": false,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_dynamic",
+        "scalar": false,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": true,
+        "routed_child": "direct",
+        "status": "error",
+        "error": "CaptureError",
+        "message": "Tensor capture failed: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:1!"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": true,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": true,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          7.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": false,
+        "routed_child": "direct",
+        "status": "error",
+        "error": "CaptureError",
+        "message": "Tensor capture failed: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cuda:1!"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": false,
+        "routed_child": "copy",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      },
+      {
+        "mode": "split_compiled_eager",
+        "scalar": false,
+        "routed_child": "routed",
+        "status": "ok",
+        "result": [
+          6.0,
+          8.0
+        ],
+        "output_device": "cuda:0",
+        "child_value_device": "cuda:1"
+      }
+    ]
+  },
+  "other_findings": [
+    "Python/NumPy random draws and metadata may be stale under capture",
+    "split homes can prevent flat packing or valid-context flat assignment",
+    "GPU HDF5 append may partially modify files; GPU saveattrs may be omitted",
+    "external shared-node owners require a common plan",
+    "outer custom decorators can bypass forward routing"
+  ]
+}

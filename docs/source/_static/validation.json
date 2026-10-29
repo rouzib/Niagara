@@ -1,0 +1,392 @@
+{
+  "niagara": "0.7.0",
+  "timestamp_utc": "2026-10-27T02:36:35.113261+00:00",
+  "project": "G:\\Qsync\\Maitrise\\Projects\\Niagara",
+  "python_executable": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Scripts\\python.exe",
+  "python": "3.11.1",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "versions": {
+    "caskade": "1.1.5",
+    "caustics": "1.7.1",
+    "torch": "2.12.0+cu126",
+    "triton-windows": "3.7.1.post27",
+    "numpy": "1.26.4",
+    "astropy": "7.2.3",
+    "scipy": "1.17.1",
+    "sphinx": "8.2.3",
+    "myst-nb": "1.4.0",
+    "pydata-sphinx-theme": "0.16.1"
+  },
+  "public_caskade": {
+    "version": "1.1.5",
+    "import_path": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Lib\\site-packages\\caskade\\__init__.py",
+    "published_wheel_sha256": "89c54775efd1be83ba5f699583a7476e7c8a96c0f50e62a10b5cccb485f413be",
+    "source_files_verified": 14
+  },
+  "physical_cuda_devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "d6b66763-30ad-b999-effc-189e8a805489"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "cf4a6b09-c71f-415a-a9a1-3a1aa62541e9"
+    }
+  ],
+  "tests": {
+    "source": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "passed": 67
+    },
+    "cpu": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 25,
+      "passed": 42
+    },
+    "installed_wheel": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "public_exports_preserved": [
+    "ActiveContext",
+    "AsyncGraphExecutor",
+    "Backend",
+    "CaptureError",
+    "CompiledModel",
+    "DevicePlan",
+    "GraphFuture",
+    "GuardError",
+    "Module",
+    "NiagaraError",
+    "Param",
+    "Placement",
+    "PlacementError",
+    "ReplicaPool",
+    "assign_devices",
+    "compile_model",
+    "disable",
+    "draw_execution",
+    "draw_model",
+    "draw_schedule",
+    "enable",
+    "forward",
+    "gallery",
+    "profile",
+    "vmap"
+  ],
+  "library_sha256": {
+    "niagara/__init__.py": "75d9434263768dce39478c15ca1c5600e9caabd0888424682ec1f045636b82fc",
+    "niagara/backend.py": "98d3d85602d01be06d815f0a016d6a45238584b4dc7bd24daf35e375e5156f0f",
+    "niagara/caustics.py": "940ff51b1fc4691dc8f69e7b87aa7d44c8ac59d6cba183f1e94e6f65b76a60c1",
+    "niagara/compiler.py": "0c9e487f86e172066ee5b8a37d78a9d58a7a6d9001045972fb3d7b551f94d3c3",
+    "niagara/errors.py": "acfd29bf72465cea1497ad96b1585b997c013e6573f8768c0532544fed51e03b",
+    "niagara/execution.py": "719338b253e71ea85373b7c2f5a36f1a7afb2e019c68cd098d991d0bc76229ea",
+    "niagara/guards.py": "daa8d5b163f0e17405fdf9563370d86e6cd9959d5549ec52077f416124ebb63d",
+    "niagara/placement.py": "09555a1efd8e260e2a7b1a48523d766c32d89f5e6b28b8847206a145219e4004",
+    "niagara/replay.py": "0624fd41530b2b3978a33fdce261395d2200a9a37a1a764b1f7656aabd7596b0",
+    "niagara/sampling.py": "12977e193bd9b5428d929b8b7208367c6effd7ffc5f2135233f74c5a71e6b31a",
+    "niagara/visualization.py": "66aeaa2864a5adb48a3818052b59aacfd358447bdca883ac3f806843ce7d9823"
+  },
+  "notebooks": {
+    "count": 9,
+    "user_guide_count": 7,
+    "image_outputs": 18,
+    "output_count": 59,
+    "executed_cells": 42,
+    "errors": 0,
+    "hardware_skips": 0,
+    "interpreter": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Scripts\\python.exe"
+  },
+  "science": {
+    "niagara": "0.7.0",
+    "public_caskade": {
+      "version": "1.1.5",
+      "import_path": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Lib\\site-packages\\caskade\\__init__.py",
+      "published_wheel_sha256": "89c54775efd1be83ba5f699583a7476e7c8a96c0f50e62a10b5cccb485f413be",
+      "source_files_verified": 14
+    },
+    "identical_observations": true,
+    "all_gates_passed": true,
+    "runs": {
+      "mcmc_one_gpu": {
+        "versions": {
+          "torch": "2.12.0+cu126",
+          "niagara": "0.7.0",
+          "caskade": "1.1.5",
+          "caustics": "1.7.1"
+        },
+        "validation": {
+          "value_abs": 0.0,
+          "all_gradient_abs_max": 5.4569682106375694e-12,
+          "all_gradient_finite_difference_abs_max": 0.00025426133652217686
+        },
+        "diagnostics": {
+          "parameters": {
+            "mass.x0": {
+              "rhat": 1.0021882668177886,
+              "bulk_ess": 4471.877550450838,
+              "tail_ess": 7473.927928858565
+            },
+            "mass.y0": {
+              "rhat": 1.0017138405958863,
+              "bulk_ess": 4374.303766733114,
+              "tail_ess": 7450.154903309383
+            },
+            "mass.q": {
+              "rhat": 1.0031226134625144,
+              "bulk_ess": 2064.2286721928685,
+              "tail_ess": 1902.8877686395715
+            },
+            "mass.phi": {
+              "rhat": 1.002589322192599,
+              "bulk_ess": 2037.4690521979142,
+              "tail_ess": 2549.3567087054525
+            },
+            "mass.Rein": {
+              "rhat": 1.0013979834800584,
+              "bulk_ess": 4216.936378013683,
+              "tail_ess": 7473.685649940791
+            },
+            "shear.gamma_1": {
+              "rhat": 1.002081124890525,
+              "bulk_ess": 2290.464729635123,
+              "tail_ess": 2633.6833127352847
+            },
+            "shear.gamma_2": {
+              "rhat": 1.0027661202217957,
+              "bulk_ess": 2638.161243517015,
+              "tail_ess": 3042.5592099520845
+            },
+            "source.x0": {
+              "rhat": 1.0015780602488573,
+              "bulk_ess": 3815.0784874128476,
+              "tail_ess": 6471.43412318698
+            },
+            "source.y0": {
+              "rhat": 1.001716584578909,
+              "bulk_ess": 3369.199660263155,
+              "tail_ess": 5105.601411824778
+            },
+            "source.q": {
+              "rhat": 1.0022309597820838,
+              "bulk_ess": 3043.996060594824,
+              "tail_ess": 3645.058196754214
+            },
+            "source.phi": {
+              "rhat": 1.0009884595175889,
+              "bulk_ess": 3417.9371878147117,
+              "tail_ess": 5334.627115209535
+            },
+            "source.n": {
+              "rhat": 1.0013976301419494,
+              "bulk_ess": 4009.885660567959,
+              "tail_ess": 7500.957374458689
+            },
+            "source.Re": {
+              "rhat": 1.0014974382463775,
+              "bulk_ess": 3813.379884227684,
+              "tail_ess": 6790.543146370909
+            },
+            "source.Ie": {
+              "rhat": 1.0010886518324127,
+              "bulk_ess": 4312.1972195191065,
+              "tail_ess": 6373.501756552874
+            },
+            "light.x0": {
+              "rhat": 1.0017061457512892,
+              "bulk_ess": 4972.60270745703,
+              "tail_ess": 8474.877826113356
+            },
+            "light.y0": {
+              "rhat": 1.0019336617715302,
+              "bulk_ess": 4741.076642282394,
+              "tail_ess": 8340.762247979535
+            },
+            "light.q": {
+              "rhat": 1.0018779817848453,
+              "bulk_ess": 4352.0217941448345,
+              "tail_ess": 7389.490127704267
+            },
+            "light.phi": {
+              "rhat": 1.0006421114723483,
+              "bulk_ess": 4932.750279658501,
+              "tail_ess": 7845.584259302548
+            },
+            "light.n": {
+              "rhat": 1.0012258491709756,
+              "bulk_ess": 4863.038193194585,
+              "tail_ess": 8037.200466979132
+            },
+            "light.Re": {
+              "rhat": 1.0019947926523451,
+              "bulk_ess": 4753.933448322281,
+              "tail_ess": 8024.703907302671
+            },
+            "light.Ie": {
+              "rhat": 1.0015399078459601,
+              "bulk_ess": 4747.266283516551,
+              "tail_ess": 7691.477391990433
+            }
+          },
+          "max_rhat": 1.0031226134625144,
+          "min_bulk_ess": 2037.4690521979142,
+          "min_tail_ess": 1902.8877686395715,
+          "accepted": true
+        },
+        "retained_draws": 32000,
+        "predictive": {
+          "draws": 128,
+          "standardized_residual_rms": 0.9921835286954527,
+          "uncertainty": "parameter uncertainty only, excludes measurement noise"
+        },
+        "result": "results\\0.7.0\\science_final\\mcmc_one_gpu\\result.json"
+      },
+      "mcmc_two_gpu": {
+        "versions": {
+          "torch": "2.12.0+cu126",
+          "niagara": "0.7.0",
+          "caskade": "1.1.5",
+          "caustics": "1.7.1"
+        },
+        "validation": {
+          "value_abs": 0.0,
+          "all_gradient_abs_max": 7.275957614183426e-12,
+          "all_gradient_finite_difference_abs_max": 0.00025426134197914507
+        },
+        "diagnostics": {
+          "parameters": {
+            "mass.x0": {
+              "rhat": 1.0021947348697304,
+              "bulk_ess": 4474.838439579026,
+              "tail_ess": 7447.413967476186
+            },
+            "mass.y0": {
+              "rhat": 1.0016815110203443,
+              "bulk_ess": 4384.606936493819,
+              "tail_ess": 7302.041930079213
+            },
+            "mass.q": {
+              "rhat": 1.0030962531894945,
+              "bulk_ess": 2096.7840036687107,
+              "tail_ess": 1991.4582588030667
+            },
+            "mass.phi": {
+              "rhat": 1.0024894052325288,
+              "bulk_ess": 2055.349782095673,
+              "tail_ess": 2616.9255922819907
+            },
+            "mass.Rein": {
+              "rhat": 1.0013540298492973,
+              "bulk_ess": 4243.266878364227,
+              "tail_ess": 7511.669814155401
+            },
+            "shear.gamma_1": {
+              "rhat": 1.0020394268776853,
+              "bulk_ess": 2337.529093745761,
+              "tail_ess": 2587.1528639058633
+            },
+            "shear.gamma_2": {
+              "rhat": 1.0028150453133535,
+              "bulk_ess": 2629.361641813802,
+              "tail_ess": 3032.8073624257268
+            },
+            "source.x0": {
+              "rhat": 1.001582788036063,
+              "bulk_ess": 3874.3195099656477,
+              "tail_ess": 6593.019750512092
+            },
+            "source.y0": {
+              "rhat": 1.0017891445832476,
+              "bulk_ess": 3391.864984328484,
+              "tail_ess": 5182.926285648902
+            },
+            "source.q": {
+              "rhat": 1.0022771424635089,
+              "bulk_ess": 3054.4428074043662,
+              "tail_ess": 3767.0780566177323
+            },
+            "source.phi": {
+              "rhat": 1.0009718509733003,
+              "bulk_ess": 3459.0363133531137,
+              "tail_ess": 5334.627115209535
+            },
+            "source.n": {
+              "rhat": 1.0014314382786758,
+              "bulk_ess": 4022.8244773048173,
+              "tail_ess": 7495.909297181119
+            },
+            "source.Re": {
+              "rhat": 1.0014693790793483,
+              "bulk_ess": 3870.756656212235,
+              "tail_ess": 6790.670133895613
+            },
+            "source.Ie": {
+              "rhat": 1.0010977068126468,
+              "bulk_ess": 4306.246600922019,
+              "tail_ess": 6373.501756552874
+            },
+            "light.x0": {
+              "rhat": 1.001660018056831,
+              "bulk_ess": 4985.350125506469,
+              "tail_ess": 8474.877826113356
+            },
+            "light.y0": {
+              "rhat": 1.0018929036643107,
+              "bulk_ess": 4725.0954523367,
+              "tail_ess": 8322.485709809307
+            },
+            "light.q": {
+              "rhat": 1.0019006029714814,
+              "bulk_ess": 4350.73385291275,
+              "tail_ess": 7396.350669735001
+            },
+            "light.phi": {
+              "rhat": 1.0006372573422115,
+              "bulk_ess": 4939.500221024313,
+              "tail_ess": 7866.277367425233
+            },
+            "light.n": {
+              "rhat": 1.0012093778535125,
+              "bulk_ess": 4859.8266719314315,
+              "tail_ess": 7975.188846194334
+            },
+            "light.Re": {
+              "rhat": 1.0020106908132833,
+              "bulk_ess": 4751.074625754641,
+              "tail_ess": 7977.579420022719
+            },
+            "light.Ie": {
+              "rhat": 1.0015699858656375,
+              "bulk_ess": 4748.6767216080825,
+              "tail_ess": 7624.039819101975
+            }
+          },
+          "max_rhat": 1.0030962531894945,
+          "min_bulk_ess": 2055.349782095673,
+          "min_tail_ess": 1991.4582588030667,
+          "accepted": true
+        },
+        "retained_draws": 32000,
+        "predictive": {
+          "draws": 128,
+          "standardized_residual_rms": 0.9921835287927564,
+          "uncertainty": "parameter uncertainty only, excludes measurement noise"
+        },
+        "result": "results\\0.7.0\\science_final\\mcmc_two_gpu\\result.json"
+      }
+    }
+  },
+  "all_checked_source_hashes_match": true,
+  "historical_resource_matrix": "docs/reports/0.6.0",
+  "scope": "Windows/Python3.11 on the listed two physical RTX3090 GPUs. Hosted CI is prepared, not remotely executed. Historical0.6 performance is not relabeled as0.7. Full current21-parameter MALA uses32000 retained draws per placement; all gates pass."
+}

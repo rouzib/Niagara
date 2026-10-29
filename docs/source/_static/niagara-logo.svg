@@ -1,0 +1,8 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="280" height="88" viewBox="0 0 280 88" role="img" aria-labelledby="title desc">
+  <title id="title">Niagara</title>
+  <desc id="desc">A simple teal N and the Niagara wordmark.</desc>
+  <g fill="#168a77">
+    <path d="M14 66V18h11l26 29V18h11v48H51L25 37v29Z"/>
+    <text x="84" y="65" font-family="Segoe UI,Arial,Helvetica,sans-serif" font-size="56" font-weight="600" letter-spacing="-1.4">Niagara</text>
+  </g>
+</svg>

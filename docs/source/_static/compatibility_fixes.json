@@ -1,0 +1,131 @@
+{
+  "description": "Niagara source suite and unchanged published Caskade tests through the test adapter; per-topology call connectivity counts only passing tests.",
+  "versions": {
+    "version": "0.7.0",
+    "import_path": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\src\\niagara\\__init__.py"
+  },
+  "caskade_version": "1.1.5",
+  "torch_version": "2.12.0+cu126",
+  "devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "d6b66763-30ad-b999-effc-189e8a805489"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "cf4a6b09-c71f-415a-a9a1-3a1aa62541e9"
+    }
+  ],
+  "source_tests": {
+    "tests": 228,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 228
+  },
+  "cpu_hidden_tests": {
+    "tests": 228,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 124,
+    "passed": 104
+  },
+  "installed_wheel_tests": {
+    "tests": 228,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "upstream": {
+    "upstream": {
+      "selected_devices": [
+        "cuda:0",
+        "cuda:1"
+      ],
+      "default_device": "cuda:0",
+      "counts": {
+        "tests": 954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2,
+        "passed": 952
+      },
+      "passing_calls_connecting_all_selected_devices": 10886,
+      "passing_tests_with_connected_calls": 29,
+      "active_context_native_bypasses": 0,
+      "compile_checks": "eligible",
+      "coverage_collected": true,
+      "compiled_cuda_graph_programs": 15,
+      "compiled_gradient_programs": 12,
+      "compiled_gradient_components_checked": 242
+    },
+    "upstream_cpu_gpu": {
+      "selected_devices": [
+        "cpu",
+        "cuda:0"
+      ],
+      "default_device": "cpu",
+      "counts": {
+        "tests": 954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2,
+        "passed": 952
+      },
+      "passing_calls_connecting_all_selected_devices": 11667,
+      "passing_tests_with_connected_calls": 29,
+      "active_context_native_bypasses": 0,
+      "compile_checks": "off",
+      "coverage_collected": true
+    },
+    "upstream_cpu_two_gpus": {
+      "selected_devices": [
+        "cpu",
+        "cuda:0",
+        "cuda:1"
+      ],
+      "default_device": "cpu",
+      "counts": {
+        "tests": 954,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 2,
+        "passed": 952
+      },
+      "passing_calls_connecting_all_selected_devices": 9350,
+      "passing_tests_with_connected_calls": 21,
+      "active_context_native_bypasses": 0,
+      "compile_checks": "off",
+      "coverage_collected": true
+    }
+  },
+  "coverage": {
+    "combined_percent": 92.70833333333333,
+    "statement_percent": 94.58288190682556,
+    "branch_percent": 88.59857482185274,
+    "statements": 1846,
+    "branches": 842,
+    "scope": "Union of Niagara branch coverage from source tests and three upstream adapter runs; native Caskade control and coverage outside Niagara are excluded."
+  },
+  "runtime_sha256": {
+    "src/niagara/__init__.py": "75d9434263768dce39478c15ca1c5600e9caabd0888424682ec1f045636b82fc",
+    "src/niagara/backend.py": "ecdd363533b59b0ea20ab5ffd22f8a0ed80f204d267d8754fd6ab968eaf306d3",
+    "src/niagara/compiler.py": "6454f4ec4de13284d110c1534c035a9fd0ba2afdfad10e72a524ad2688f10db0",
+    "src/niagara/effects.py": "d748d489ac66664642c79c95c1ad991939c65a1c3e93f4021ac5c0fae236f703",
+    "src/niagara/errors.py": "acfd29bf72465cea1497ad96b1585b997c013e6573f8768c0532544fed51e03b",
+    "src/niagara/execution.py": "719338b253e71ea85373b7c2f5a36f1a7afb2e019c68cd098d991d0bc76229ea",
+    "src/niagara/guards.py": "b58d0f7866d0da7cf3294092b59af5a653dcb0215df8bc2d9d336c7a924c0e16",
+    "src/niagara/parameters.py": "9be3d6990419e5a97500961e2034211513a70d49362fdc249eb2f5ae0dc4b336",
+    "src/niagara/persistence.py": "0394f3e79161c7eb180f8619c2fb6e68f06f4bc2eba7ee3536378612bc9afcdc",
+    "src/niagara/placement.py": "24477b008252ee7ef378820f61f3a4cc5242739b1a663e52cf82e59f7a2eda25",
+    "src/niagara/replay.py": "0624fd41530b2b3978a33fdce261395d2200a9a37a1a764b1f7656aabd7596b0",
+    "src/niagara/visualization.py": "66aeaa2864a5adb48a3818052b59aacfd358447bdca883ac3f806843ce7d9823"
+  },
+  "limitations": [
+    "The adapter returns results to the host for unchanged upstream assertions; not every case executes on multiple devices.",
+    "Mixed-layout full suites use dynamic routing; focused tests cover compiled-eager on mixed devices.",
+    "Unknown Python effects, opaque state, some PyTorch functional transforms and custom persistence remain limited."
+  ]
+}

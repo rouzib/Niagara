@@ -1,0 +1,8 @@
+# Keep aligned with the project's docs extra. The project is installed separately.
+sphinx>=7.4,<9
+myst-nb>=1.1,<2
+pydata-sphinx-theme>=0.15,<0.17
+sphinx-copybutton>=0.5,<1
+sphinx-design>=0.6,<1
+sphinxcontrib-bibtex>=2.6,<3
+sphinxcontrib-mermaid>=2.1,<3

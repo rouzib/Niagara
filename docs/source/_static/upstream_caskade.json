@@ -1,0 +1,4444 @@
+{
+  "status": "passed",
+  "timestamp_utc": "2026-10-27T20:21:02.001715+00:00",
+  "scope": "Full unchanged public Caskade Torch suite with dynamic Niagara routing and selected strict compiled probes on two physical GPUs.",
+  "native_control": {
+    "failed": 0,
+    "errors": 0,
+    "skipped": 2,
+    "collected": 954,
+    "passed": 952
+  },
+  "niagara": {
+    "failed": 0,
+    "errors": 0,
+    "skipped": 2,
+    "collected": 954,
+    "passed": 952
+  },
+  "niagara_source_tests": {
+    "collected": 117,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 117
+  },
+  "niagara_cpu_tests": {
+    "collected": 117,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 55,
+    "passed": 62
+  },
+  "niagara_wheel_tests": {
+    "tests": 117,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "routing": {
+    "outcomes": {
+      "passed": 952,
+      "skipped": 2
+    },
+    "tests_with_routed_calls": 36,
+    "tests_observed_both_gpus": 29,
+    "tests_with_true_split_calls": 29,
+    "true_split_calls": 10886,
+    "passed_tests_with_true_split_calls": 29,
+    "failed_tests_with_true_split_calls": 0,
+    "true_split_calls_in_passed_tests": 10886,
+    "native_bypass_active_context_calls": 0,
+    "tests_with_native_bypass_active_context_calls": 0,
+    "call_statuses": {
+      "routed": 10926,
+      "routed_active_context": 2,
+      "routing_failed": 13
+    }
+  },
+  "successful_routing": {
+    "calls": 10928,
+    "split_calls": 10886,
+    "tests_with_successful_routing": 36,
+    "tests_with_successful_split_calls": 29,
+    "native_forward_fallbacks": 0,
+    "closed_external_contexts": 18,
+    "independent_nested_helper_calls": 2
+  },
+  "compiled": {
+    "selected_numerical_programs": 15,
+    "forward_backends": {
+      "cuda_graph": 15
+    },
+    "gradient_backends": {
+      "cuda_graph": 12
+    },
+    "programs_capturing_both_gpus": 14,
+    "programs_with_input_dependent_arithmetic_on_both_gpus": 14,
+    "nonempty_tensor_computation_programs": 15,
+    "view_or_constant_only_programs": 0,
+    "value_checks": 30,
+    "gradient_checks": 24,
+    "gradient_components_checked": 242,
+    "integer_forward_programs": 3,
+    "metadata_guard_rejections": 15,
+    "all_programs_have_nonempty_input_dependent_tensor_work": true,
+    "eligibility_scope": "Selected pure numerical core entry-point families; not an assertion that every other call is uncompileable.",
+    "programs": [
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_forward.py::test_forward",
+        "module": "TestSim",
+        "method": "testfun",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 17,
+          "tensor_operators_by_device": {
+            "cuda:0": 11,
+            "cuda:1": 6
+          },
+          "input_dependent_arithmetic_operator_count": 6,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 3,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 42,
+          "tensor_operators_by_device": {
+            "cuda:0": 34,
+            "cuda:1": 8
+          },
+          "input_dependent_arithmetic_operator_count": 20,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 17,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 8,
+            "tensor_operators_by_device": {
+              "cuda:0": 8
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 6,
+            "tensor_operators_by_device": {
+              "cuda:1": 6
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 8,
+            "tensor_operators_by_device": {
+              "cuda:0": 8
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 6,
+            "tensor_operators_by_device": {
+              "cuda:1": 6
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 14,
+            "tensor_operators_by_device": {
+              "cuda:0": 14
+            },
+            "input_dependent_arithmetic_operator_count": 9,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 9
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 12,
+            "tensor_operators_by_device": {
+              "cuda:0": 12
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 20,
+        "gradient_graph_nodes": 45,
+        "floating_input_components": 7,
+        "integer_input_components": 0,
+        "gradient_components_checked": 14,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [
+              2,
+              2
+            ],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_integration.py::test_full_integration",
+        "module": "TestSim",
+        "method": "testfun",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 9,
+          "tensor_operators_by_device": {
+            "cuda:0": 5,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operator_count": 4,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 2,
+            "cuda:0": 2
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 24,
+          "tensor_operators_by_device": {
+            "cuda:0": 19,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 14,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 2,
+            "cuda:0": 12
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 4,
+            "tensor_operators_by_device": {
+              "cuda:1": 4
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 4,
+            "tensor_operators_by_device": {
+              "cuda:1": 4
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 10,
+            "tensor_operators_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operator_count": 8,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 8
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 1,
+            "tensor_operators_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 6,
+            "tensor_operators_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 12,
+        "gradient_graph_nodes": 27,
+        "floating_input_components": 1,
+        "integer_input_components": 0,
+        "gradient_components_checked": 2,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_integration.py::test_full_integration_v2",
+        "module": "MyMainSim",
+        "method": "mymainfunction",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 48,
+          "tensor_operators_by_device": {
+            "cuda:0": 41,
+            "cuda:1": 7
+          },
+          "input_dependent_arithmetic_operator_count": 24,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 21,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 118,
+          "tensor_operators_by_device": {
+            "cuda:0": 107,
+            "cuda:1": 11
+          },
+          "input_dependent_arithmetic_operator_count": 78,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 73,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.slice_backward.default",
+            "aten.mul.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.mul.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 31,
+            "tensor_operators_by_device": {
+              "cuda:0": 31
+            },
+            "input_dependent_arithmetic_operator_count": 13,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 4,
+            "tensor_operators_by_device": {
+              "cuda:1": 4
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 8,
+            "tensor_operators_by_device": {
+              "cuda:0": 8
+            },
+            "input_dependent_arithmetic_operator_count": 7,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 7
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 31,
+            "tensor_operators_by_device": {
+              "cuda:0": 31
+            },
+            "input_dependent_arithmetic_operator_count": 13,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 4,
+            "tensor_operators_by_device": {
+              "cuda:1": 4
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 28,
+            "tensor_operators_by_device": {
+              "cuda:0": 28
+            },
+            "input_dependent_arithmetic_operator_count": 24,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 24
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_5",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 2,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_6",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_7",
+            "device": "cuda:1",
+            "tensor_operator_count": 1,
+            "tensor_operators_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_8",
+            "device": "cuda:0",
+            "tensor_operator_count": 35,
+            "tensor_operators_by_device": {
+              "cuda:0": 35
+            },
+            "input_dependent_arithmetic_operator_count": 29,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 29
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.mul.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 50,
+        "gradient_graph_nodes": 120,
+        "floating_input_components": 8,
+        "integer_input_components": 0,
+        "gradient_components_checked": 16,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods[array]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 113,
+          "tensor_operators_by_device": {
+            "cuda:0": 60,
+            "cuda:1": 53
+          },
+          "input_dependent_arithmetic_operator_count": 60,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 32,
+            "cuda:0": 28
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": null,
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 44,
+            "tensor_operators_by_device": {
+              "cuda:0": 44
+            },
+            "input_dependent_arithmetic_operator_count": 18,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 18
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 53,
+            "tensor_operators_by_device": {
+              "cuda:1": 53
+            },
+            "input_dependent_arithmetic_operator_count": 32,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 32
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 16,
+            "tensor_operators_by_device": {
+              "cuda:0": 16
+            },
+            "input_dependent_arithmetic_operator_count": 10,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": null,
+        "graph_nodes": 115,
+        "gradient_graph_nodes": 0,
+        "floating_input_components": 0,
+        "integer_input_components": 28,
+        "gradient_components_checked": 0,
+        "value_checks": 2,
+        "gradient_checks": 0,
+        "gradient_reason": "Integer and boolean inputs have no ordinary autograd derivatives",
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.int64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods[list]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 111,
+          "tensor_operators_by_device": {
+            "cuda:0": 58,
+            "cuda:1": 53
+          },
+          "input_dependent_arithmetic_operator_count": 60,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 32,
+            "cuda:0": 28
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": null,
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 42,
+            "tensor_operators_by_device": {
+              "cuda:0": 42
+            },
+            "input_dependent_arithmetic_operator_count": 18,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 18
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 53,
+            "tensor_operators_by_device": {
+              "cuda:1": 53
+            },
+            "input_dependent_arithmetic_operator_count": 32,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 32
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 16,
+            "tensor_operators_by_device": {
+              "cuda:0": 16
+            },
+            "input_dependent_arithmetic_operator_count": 10,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": null,
+        "graph_nodes": 113,
+        "gradient_graph_nodes": 0,
+        "floating_input_components": 0,
+        "integer_input_components": 28,
+        "gradient_components_checked": 0,
+        "value_checks": 2,
+        "gradient_checks": 0,
+        "gradient_reason": "Integer and boolean inputs have no ordinary autograd derivatives",
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.int64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods[dict]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 111,
+          "tensor_operators_by_device": {
+            "cuda:0": 58,
+            "cuda:1": 53
+          },
+          "input_dependent_arithmetic_operator_count": 60,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 32,
+            "cuda:0": 28
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": null,
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 42,
+            "tensor_operators_by_device": {
+              "cuda:0": 42
+            },
+            "input_dependent_arithmetic_operator_count": 18,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 18
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 53,
+            "tensor_operators_by_device": {
+              "cuda:1": 53
+            },
+            "input_dependent_arithmetic_operator_count": 32,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 32
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 16,
+            "tensor_operators_by_device": {
+              "cuda:0": 16
+            },
+            "input_dependent_arithmetic_operator_count": 10,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": null,
+        "graph_nodes": 113,
+        "gradient_graph_nodes": 0,
+        "floating_input_components": 0,
+        "integer_input_components": 28,
+        "gradient_components_checked": 0,
+        "value_checks": 2,
+        "gradient_checks": 0,
+        "gradient_reason": "Integer and boolean inputs have no ordinary autograd derivatives",
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.int64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods_hierarchical[array]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 37,
+          "tensor_operators_by_device": {
+            "cuda:0": 25,
+            "cuda:1": 12
+          },
+          "input_dependent_arithmetic_operator_count": 16,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 10,
+            "cuda:1": 6
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 90,
+          "tensor_operators_by_device": {
+            "cuda:0": 67,
+            "cuda:1": 23
+          },
+          "input_dependent_arithmetic_operator_count": 42,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 32,
+            "cuda:1": 10
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.default",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 19,
+            "tensor_operators_by_device": {
+              "cuda:0": 19
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 12,
+            "tensor_operators_by_device": {
+              "cuda:1": 12
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 6,
+            "tensor_operators_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operator_count": 4,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 4
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 19,
+            "tensor_operators_by_device": {
+              "cuda:0": 19
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 12,
+            "tensor_operators_by_device": {
+              "cuda:1": 12
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 29,
+            "tensor_operators_by_device": {
+              "cuda:0": 29
+            },
+            "input_dependent_arithmetic_operator_count": 16,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 16
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:1": 11
+            },
+            "input_dependent_arithmetic_operator_count": 4,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 4
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.default",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.sum.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 19,
+            "tensor_operators_by_device": {
+              "cuda:0": 19
+            },
+            "input_dependent_arithmetic_operator_count": 10,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 41,
+        "gradient_graph_nodes": 94,
+        "floating_input_components": 29,
+        "integer_input_components": 0,
+        "gradient_components_checked": 58,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods_hierarchical[list]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 21,
+          "tensor_operators_by_device": {
+            "cuda:0": 16,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 13,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 10,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 51,
+          "tensor_operators_by_device": {
+            "cuda:0": 41,
+            "cuda:1": 10
+          },
+          "input_dependent_arithmetic_operator_count": 27,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 23,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 4,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 4
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 25,
+            "tensor_operators_by_device": {
+              "cuda:0": 25
+            },
+            "input_dependent_arithmetic_operator_count": 14,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 14
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 29,
+        "gradient_graph_nodes": 59,
+        "floating_input_components": 25,
+        "integer_input_components": 0,
+        "gradient_components_checked": 50,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_module.py::test_input_methods_hierarchical[dict]",
+        "module": "Simulator",
+        "method": "run_sim",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 21,
+          "tensor_operators_by_device": {
+            "cuda:0": 16,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 13,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 10,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 51,
+          "tensor_operators_by_device": {
+            "cuda:0": 41,
+            "cuda:1": 10
+          },
+          "input_dependent_arithmetic_operator_count": 27,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 23,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 4,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 4
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 6,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 6
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 25,
+            "tensor_operators_by_device": {
+              "cuda:0": 25
+            },
+            "input_dependent_arithmetic_operator_count": 14,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 14
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.dim_IntList",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 29,
+        "gradient_graph_nodes": 59,
+        "floating_input_components": 25,
+        "integer_input_components": 0,
+        "gradient_components_checked": 50,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float64",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_deep_hierarchy",
+        "module": "Deep",
+        "method": "go",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 17,
+          "tensor_operators_by_device": {
+            "cuda:0": 14,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operator_count": 2,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 1,
+            "cuda:0": 1
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 39,
+          "tensor_operators_by_device": {
+            "cuda:0": 35,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operator_count": 14,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 1,
+            "cuda:0": 13
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 12,
+            "tensor_operators_by_device": {
+              "cuda:0": 12
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 12,
+            "tensor_operators_by_device": {
+              "cuda:0": 12
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 13,
+            "tensor_operators_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operator_count": 9,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 9
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 1,
+            "tensor_operators_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 10,
+            "tensor_operators_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operator_count": 4,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 4
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 19,
+        "gradient_graph_nodes": 41,
+        "floating_input_components": 3,
+        "integer_input_components": 0,
+        "gradient_components_checked": 6,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_internal_vmap_with_groups",
+        "module": "VmapModule",
+        "method": "run",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 16,
+          "tensor_operators_by_device": {
+            "cuda:0": 9,
+            "cuda:1": 7
+          },
+          "input_dependent_arithmetic_operator_count": 8,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 4,
+            "cuda:0": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 40,
+          "tensor_operators_by_device": {
+            "cuda:0": 26,
+            "cuda:1": 14
+          },
+          "input_dependent_arithmetic_operator_count": 19,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:1": 6,
+            "cuda:0": 13
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.slice_backward.default"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 0,
+            "input_dependent_arithmetic_by_device": {},
+            "input_dependent_arithmetic_operators": [],
+            "work_kind": "views_or_constant_only",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 11,
+            "tensor_operators_by_device": {
+              "cuda:0": 11
+            },
+            "input_dependent_arithmetic_operator_count": 8,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 8
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_5",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_6",
+            "device": "cuda:0",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_7",
+            "device": "cuda:1",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:1": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_8",
+            "device": "cuda:0",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 22,
+        "gradient_graph_nodes": 46,
+        "floating_input_components": 3,
+        "integer_input_components": 0,
+        "gradient_components_checked": 6,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_forward_with_multi_group_params",
+        "module": "Outer",
+        "method": "run",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 22,
+          "tensor_operators_by_device": {
+            "cuda:0": 17,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 7,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 4,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 52,
+          "tensor_operators_by_device": {
+            "cuda:0": 44,
+            "cuda:1": 8
+          },
+          "input_dependent_arithmetic_operator_count": 25,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 21,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.default",
+            "aten.sum.default",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 15,
+            "tensor_operators_by_device": {
+              "cuda:0": 15
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 15,
+            "tensor_operators_by_device": {
+              "cuda:0": 15
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 19,
+            "tensor_operators_by_device": {
+              "cuda:0": 19
+            },
+            "input_dependent_arithmetic_operator_count": 13,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.default",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 10,
+            "tensor_operators_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operator_count": 5,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 24,
+        "gradient_graph_nodes": 54,
+        "floating_input_components": 6,
+        "integer_input_components": 0,
+        "gradient_components_checked": 12,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_forward_with_params_kwarg",
+        "module": "Outer",
+        "method": "run",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 22,
+          "tensor_operators_by_device": {
+            "cuda:0": 17,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 7,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 4,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 52,
+          "tensor_operators_by_device": {
+            "cuda:0": 44,
+            "cuda:1": 8
+          },
+          "input_dependent_arithmetic_operator_count": 25,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 21,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.default",
+            "aten.sum.default",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 15,
+            "tensor_operators_by_device": {
+              "cuda:0": 15
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 15,
+            "tensor_operators_by_device": {
+              "cuda:0": 15
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 19,
+            "tensor_operators_by_device": {
+              "cuda:0": 19
+            },
+            "input_dependent_arithmetic_operator_count": 13,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.default",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 10,
+            "tensor_operators_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operator_count": 5,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 24,
+        "gradient_graph_nodes": 54,
+        "floating_input_components": 6,
+        "integer_input_components": 0,
+        "gradient_components_checked": 12,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_forward_consistency",
+        "module": "Outer",
+        "method": "run",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 20,
+          "tensor_operators_by_device": {
+            "cuda:0": 15,
+            "cuda:1": 5
+          },
+          "input_dependent_arithmetic_operator_count": 7,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 4,
+            "cuda:1": 3
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 48,
+          "tensor_operators_by_device": {
+            "cuda:0": 40,
+            "cuda:1": 8
+          },
+          "input_dependent_arithmetic_operator_count": 24,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 20,
+            "cuda:1": 4
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.sum.dim_IntList",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.sum.default",
+            "aten.sum.default",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default",
+            "aten.add.Tensor",
+            "aten.slice_backward.default"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 13,
+            "tensor_operators_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 2,
+            "tensor_operators_by_device": {
+              "cuda:0": 2
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "submod_0",
+            "device": "cuda:0",
+            "tensor_operator_count": 13,
+            "tensor_operators_by_device": {
+              "cuda:0": 13
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_1",
+            "device": "cuda:1",
+            "tensor_operator_count": 5,
+            "tensor_operators_by_device": {
+              "cuda:1": 5
+            },
+            "input_dependent_arithmetic_operator_count": 3,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.sum.dim_IntList"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_2",
+            "device": "cuda:0",
+            "tensor_operator_count": 17,
+            "tensor_operators_by_device": {
+              "cuda:0": 17
+            },
+            "input_dependent_arithmetic_operator_count": 12,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 12
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.sum.default",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_3",
+            "device": "cuda:1",
+            "tensor_operator_count": 3,
+            "tensor_operators_by_device": {
+              "cuda:1": 3
+            },
+            "input_dependent_arithmetic_operator_count": 1,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:1": 1
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.sum.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          },
+          {
+            "name": "submod_4",
+            "device": "cuda:0",
+            "tensor_operator_count": 10,
+            "tensor_operators_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operator_count": 5,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 5
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default",
+              "aten.add.Tensor",
+              "aten.slice_backward.default"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 22,
+        "gradient_graph_nodes": 50,
+        "floating_input_components": 6,
+        "integer_input_components": 0,
+        "gradient_components_checked": 12,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0",
+          "cuda:1"
+        ]
+      },
+      {
+        "nodeid": "results/0.7.0/upstream_complete/caskade-1.1.5/tests/test_param_groups.py::test_valid_context_forward_multi_group",
+        "module": "BoundedSim",
+        "method": "run",
+        "status": "passed",
+        "backend_requested": "auto",
+        "forward_work": {
+          "tensor_operator_count": 28,
+          "tensor_operators_by_device": {
+            "cuda:0": 28
+          },
+          "input_dependent_arithmetic_operator_count": 10,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 10
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.clamp.Tensor",
+            "aten.sub.Tensor",
+            "aten.add.Tensor",
+            "aten.cat.default",
+            "aten.clamp.Tensor",
+            "aten.sub.Tensor",
+            "aten.add.Tensor",
+            "aten.cat.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "gradient_work": {
+          "tensor_operator_count": 49,
+          "tensor_operators_by_device": {
+            "cuda:0": 49
+          },
+          "input_dependent_arithmetic_operator_count": 20,
+          "input_dependent_arithmetic_by_device": {
+            "cuda:0": 20
+          },
+          "input_dependent_arithmetic_operators": [
+            "aten.clamp.Tensor",
+            "aten.sub.Tensor",
+            "aten.add.Tensor",
+            "aten.cat.default",
+            "aten.clamp.Tensor",
+            "aten.sub.Tensor",
+            "aten.add.Tensor",
+            "aten.cat.default",
+            "aten.add.Tensor",
+            "aten.add.Tensor",
+            "aten.pow.Tensor_Scalar",
+            "aten.sum.default",
+            "aten.add.Tensor",
+            "aten.ones_like.default",
+            "aten.pow.Tensor_Scalar",
+            "aten.mul.Scalar",
+            "aten.mul.Tensor",
+            "aten.slice_backward.default",
+            "aten.slice_backward.default",
+            "aten.add.Tensor"
+          ],
+          "work_kind": "nonempty_tensor_computation",
+          "measurement": "FX tensor operators; not a CUDA kernel count"
+        },
+        "forward_regions": [
+          {
+            "name": "whole_program",
+            "device": "cuda:0",
+            "tensor_operator_count": 28,
+            "tensor_operators_by_device": {
+              "cuda:0": 28
+            },
+            "input_dependent_arithmetic_operator_count": 10,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 10
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.clamp.Tensor",
+              "aten.sub.Tensor",
+              "aten.add.Tensor",
+              "aten.cat.default",
+              "aten.clamp.Tensor",
+              "aten.sub.Tensor",
+              "aten.add.Tensor",
+              "aten.cat.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "gradient_regions": [
+          {
+            "name": "whole_program",
+            "device": "cuda:0",
+            "tensor_operator_count": 49,
+            "tensor_operators_by_device": {
+              "cuda:0": 49
+            },
+            "input_dependent_arithmetic_operator_count": 20,
+            "input_dependent_arithmetic_by_device": {
+              "cuda:0": 20
+            },
+            "input_dependent_arithmetic_operators": [
+              "aten.clamp.Tensor",
+              "aten.sub.Tensor",
+              "aten.add.Tensor",
+              "aten.cat.default",
+              "aten.clamp.Tensor",
+              "aten.sub.Tensor",
+              "aten.add.Tensor",
+              "aten.cat.default",
+              "aten.add.Tensor",
+              "aten.add.Tensor",
+              "aten.pow.Tensor_Scalar",
+              "aten.sum.default",
+              "aten.add.Tensor",
+              "aten.ones_like.default",
+              "aten.pow.Tensor_Scalar",
+              "aten.mul.Scalar",
+              "aten.mul.Tensor",
+              "aten.slice_backward.default",
+              "aten.slice_backward.default",
+              "aten.add.Tensor"
+            ],
+            "work_kind": "nonempty_tensor_computation",
+            "measurement": "FX tensor operators; not a CUDA kernel count"
+          }
+        ],
+        "forward_backend": "cuda_graph",
+        "gradient_backend": "cuda_graph",
+        "graph_nodes": 34,
+        "gradient_graph_nodes": 55,
+        "floating_input_components": 2,
+        "integer_input_components": 0,
+        "gradient_components_checked": 4,
+        "value_checks": 2,
+        "gradient_checks": 2,
+        "gradient_reason": null,
+        "changed_input_checked": true,
+        "metadata_guard_rejections": 1,
+        "input_device": "cuda:0",
+        "outputs": [
+          {
+            "device": "cuda:0",
+            "dtype": "torch.float32",
+            "shape": [],
+            "requires_grad": false
+          }
+        ],
+        "captured_devices": [
+          "cuda:0"
+        ]
+      }
+    ]
+  },
+  "contract": {
+    "compilation": "eligible",
+    "compile_backend_requested": "auto",
+    "host_boundary": true,
+    "parameter_home": "cuda:0",
+    "module_homes": "alternating CUDA homes from cuda:0 by stable graph path",
+    "active_context_policy": "Niagara placement before external activation; CPU parameter homes preserve direct upstream assertions",
+    "non_torch_policy": "Reject non-Torch numerical forwarding; structural backend-switch checks retain the public Caskade API",
+    "assertions_modified": false,
+    "cuda_defaults_modified": false,
+    "synthetic_common_root": "temporary ownership only; all links removed after call",
+    "pointer_module_dependencies": "co-located with parameters at default home",
+    "output_device_asserted": true,
+    "initial_conftest_forward_aliases": [
+      {
+        "file": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\results\\0.7.0\\upstream_complete\\caskade-1.1.5\\tests\\conftest.py",
+        "name": "forward"
+      }
+    ],
+    "true_split_definition": "one call observes both GPUs and positive inter-GPU transfers"
+  },
+  "coverage": {
+    "before": {
+      "covered_lines": 1213,
+      "num_statements": 1367,
+      "percent_covered": 86.5233350812795,
+      "percent_covered_display": "87",
+      "missing_lines": 154,
+      "excluded_lines": 0,
+      "percent_statements_covered": 88.73445501097294,
+      "percent_statements_covered_display": "89",
+      "num_branches": 540,
+      "num_partial_branches": 49,
+      "covered_branches": 437,
+      "missing_branches": 103,
+      "percent_branches_covered": 80.92592592592592,
+      "percent_branches_covered_display": "81"
+    },
+    "gpu": {
+      "covered_lines": 1361,
+      "num_statements": 1432,
+      "percent_covered": 93.41046277665995,
+      "percent_covered_display": "93",
+      "missing_lines": 71,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.04189944134079,
+      "percent_statements_covered_display": "95",
+      "num_branches": 556,
+      "num_partial_branches": 46,
+      "covered_branches": 496,
+      "missing_branches": 60,
+      "percent_branches_covered": 89.20863309352518,
+      "percent_branches_covered_display": "89"
+    },
+    "cpu": {
+      "covered_lines": 1038,
+      "num_statements": 1432,
+      "percent_covered": 70.57344064386318,
+      "percent_covered_display": "71",
+      "missing_lines": 394,
+      "excluded_lines": 0,
+      "percent_statements_covered": 72.48603351955308,
+      "percent_statements_covered_display": "72",
+      "num_branches": 556,
+      "num_partial_branches": 65,
+      "covered_branches": 365,
+      "missing_branches": 191,
+      "percent_branches_covered": 65.64748201438849,
+      "percent_branches_covered_display": "66"
+    },
+    "gpu_modules": {
+      "src/niagara/__init__.py": {
+        "covered_lines": 9,
+        "num_statements": 9,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "src/niagara/backend.py": {
+        "covered_lines": 130,
+        "num_statements": 141,
+        "percent_covered": 88.94472361809045,
+        "percent_covered_display": "89",
+        "missing_lines": 11,
+        "excluded_lines": 0,
+        "percent_statements_covered": 92.19858156028369,
+        "percent_statements_covered_display": "92",
+        "num_branches": 58,
+        "num_partial_branches": 11,
+        "covered_branches": 47,
+        "missing_branches": 11,
+        "percent_branches_covered": 81.03448275862068,
+        "percent_branches_covered_display": "81"
+      },
+      "src/niagara/caustics.py": {
+        "covered_lines": 130,
+        "num_statements": 130,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 34,
+        "num_partial_branches": 0,
+        "covered_branches": 34,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "src/niagara/compiler.py": {
+        "covered_lines": 218,
+        "num_statements": 246,
+        "percent_covered": 85.14285714285714,
+        "percent_covered_display": "85",
+        "missing_lines": 28,
+        "excluded_lines": 0,
+        "percent_statements_covered": 88.6178861788618,
+        "percent_statements_covered_display": "89",
+        "num_branches": 104,
+        "num_partial_branches": 12,
+        "covered_branches": 80,
+        "missing_branches": 24,
+        "percent_branches_covered": 76.92307692307692,
+        "percent_branches_covered_display": "77"
+      },
+      "src/niagara/errors.py": {
+        "covered_lines": 4,
+        "num_statements": 4,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 0,
+        "num_partial_branches": 0,
+        "covered_branches": 0,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "src/niagara/execution.py": {
+        "covered_lines": 143,
+        "num_statements": 150,
+        "percent_covered": 92.57425742574257,
+        "percent_covered_display": "93",
+        "missing_lines": 7,
+        "excluded_lines": 0,
+        "percent_statements_covered": 95.33333333333333,
+        "percent_statements_covered_display": "95",
+        "num_branches": 52,
+        "num_partial_branches": 8,
+        "covered_branches": 44,
+        "missing_branches": 8,
+        "percent_branches_covered": 84.61538461538461,
+        "percent_branches_covered_display": "85"
+      },
+      "src/niagara/guards.py": {
+        "covered_lines": 70,
+        "num_statements": 72,
+        "percent_covered": 97.0,
+        "percent_covered_display": "97",
+        "missing_lines": 2,
+        "excluded_lines": 0,
+        "percent_statements_covered": 97.22222222222223,
+        "percent_statements_covered_display": "97",
+        "num_branches": 28,
+        "num_partial_branches": 1,
+        "covered_branches": 27,
+        "missing_branches": 1,
+        "percent_branches_covered": 96.42857142857143,
+        "percent_branches_covered_display": "96"
+      },
+      "src/niagara/placement.py": {
+        "covered_lines": 330,
+        "num_statements": 346,
+        "percent_covered": 94.64285714285714,
+        "percent_covered_display": "95",
+        "missing_lines": 16,
+        "excluded_lines": 0,
+        "percent_statements_covered": 95.3757225433526,
+        "percent_statements_covered_display": "95",
+        "num_branches": 158,
+        "num_partial_branches": 9,
+        "covered_branches": 147,
+        "missing_branches": 11,
+        "percent_branches_covered": 93.0379746835443,
+        "percent_branches_covered_display": "93"
+      },
+      "src/niagara/replay.py": {
+        "covered_lines": 184,
+        "num_statements": 190,
+        "percent_covered": 96.15384615384616,
+        "percent_covered_display": "96",
+        "missing_lines": 6,
+        "excluded_lines": 0,
+        "percent_statements_covered": 96.84210526315789,
+        "percent_statements_covered_display": "97",
+        "num_branches": 70,
+        "num_partial_branches": 4,
+        "covered_branches": 66,
+        "missing_branches": 4,
+        "percent_branches_covered": 94.28571428571429,
+        "percent_branches_covered_display": "94"
+      },
+      "src/niagara/sampling.py": {
+        "covered_lines": 57,
+        "num_statements": 57,
+        "percent_covered": 100.0,
+        "percent_covered_display": "100",
+        "missing_lines": 0,
+        "excluded_lines": 0,
+        "percent_statements_covered": 100.0,
+        "percent_statements_covered_display": "100",
+        "num_branches": 16,
+        "num_partial_branches": 0,
+        "covered_branches": 16,
+        "missing_branches": 0,
+        "percent_branches_covered": 100.0,
+        "percent_branches_covered_display": "100"
+      },
+      "src/niagara/visualization.py": {
+        "covered_lines": 86,
+        "num_statements": 87,
+        "percent_covered": 98.3739837398374,
+        "percent_covered_display": "98",
+        "missing_lines": 1,
+        "excluded_lines": 0,
+        "percent_statements_covered": 98.85057471264368,
+        "percent_statements_covered_display": "99",
+        "num_branches": 36,
+        "num_partial_branches": 1,
+        "covered_branches": 35,
+        "missing_branches": 1,
+        "percent_branches_covered": 97.22222222222223,
+        "percent_branches_covered_display": "97"
+      }
+    },
+    "minimum_gpu_combined_percent": 90.0,
+    "coverage_floor_passed": true,
+    "all_runtime_modules_measured": true,
+    "excluded_lines": 0,
+    "combined_evidence": {
+      "covered_lines": 1361,
+      "num_statements": 1432,
+      "percent_covered": 93.41046277665995,
+      "percent_covered_display": "93",
+      "missing_lines": 71,
+      "excluded_lines": 0,
+      "percent_statements_covered": 95.04189944134079,
+      "percent_statements_covered_display": "95",
+      "num_branches": 556,
+      "num_partial_branches": 46,
+      "covered_branches": 496,
+      "missing_branches": 60,
+      "percent_branches_covered": 89.20863309352518,
+      "percent_branches_covered_display": "89"
+    }
+  },
+  "devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "d6b66763-30ad-b999-effc-189e8a805489"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "cf4a6b09-c71f-415a-a9a1-3a1aa62541e9"
+    }
+  ],
+  "versions": {
+    "caskade": "1.1.5",
+    "niagara": "0.7.0",
+    "torch": "2.12.0+cu126",
+    "pytest": "9.0.3"
+  },
+  "imports": {
+    "caskade": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Lib\\site-packages\\caskade\\__init__.py",
+    "niagara": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\src\\niagara\\__init__.py",
+    "torch": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Lib\\site-packages\\torch\\__init__.py"
+  },
+  "caskade": {
+    "version": "1.1.5",
+    "import_path": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\.venv\\Lib\\site-packages\\caskade\\__init__.py",
+    "published_wheel_sha256": "89c54775efd1be83ba5f699583a7476e7c8a96c0f50e62a10b5cccb485f413be",
+    "source_files_verified": 14
+  },
+  "upstream": {
+    "version": "1.1.5",
+    "url": "https://files.pythonhosted.org/packages/06/f4/c1912d689a7f43daf2f61d14831505bef63fb043d6a0d5df0c8e06b9cb46/caskade-1.1.5.tar.gz",
+    "sha256": "cf901badfca33a27a13c219e3a88640867b6ca9a1abfda7f428ad32986631d78",
+    "files": {
+      "tests/conftest.py": "8357223a28f3d38c57e3c4b5318f5f1eec40b910532dd4fe4e1ef59f11a6319c",
+      "tests/test_active_cache.py": "65aed3fa9eb281b59e1b18b590e771455018a32704bdc8551396e07b2ff98ddd",
+      "tests/test_backend.py": "fc78708d79b37558347635bbddfc58c1a9eb60421ec6041163617b38cb17055f",
+      "tests/test_base.py": "523b15783019863aa546dc5adbf8092f31c312fe8c1d44ace1da99bf404c1d1a",
+      "tests/test_collection.py": "4eab26a9c3dd05a8e7dd2269f56d4e076d0c22362f5818ded0a8e261e35179a6",
+      "tests/test_context.py": "eac996bb1a7061dd8c6153a9c697a7c5f720dbe32b7c320a99ceea58d258e537",
+      "tests/test_forward.py": "bbf2b3d95bbb5b10322841f5afcf0bb0e5be7f0843990f9d3887082127a108df",
+      "tests/test_integration.py": "dbc536a9c44b8c2c4f0e8cdd008c36072a65d69b3366a5c372c9917e19fafd97",
+      "tests/test_module.py": "9c8b382ee38d9fccccb3476da6c40292c0237afc47943c682c73eaf44b91e89b",
+      "tests/test_notebooks.py": "46feb137473811be5daca22995d4189eabc75fed5834f46660422fd116a08fbd",
+      "tests/test_param.py": "64a79d298882a352de30aed608710d2475044d7023d897b65b7d68845ce486fc",
+      "tests/test_param_groups.py": "4d9303b8319dc564c26d244fdd14e38b243eee8115aeec67fae9dadc2a8e1337",
+      "tests/test_save.py": "cb834d39a28960353e1b313d7d79260f05e90020cd3a578fcfe4d9bf4d5faa9a",
+      "tests/test_utils.py": "d2f010e07edce83192cd4f4f8c05fc272fe205c9a1b8cc893f6372eb16599a02",
+      "docs/source/notebooks/AdvancedGuide.ipynb": "e83b3f5004b1d090b0e78a4c3e0a1865569e8bde2f58fc2ed5ede4d11105cdf8",
+      "docs/source/notebooks/BeginnersGuide.ipynb": "95fec35b267b3d17e31c74eeaa4d75c18e4d8e8d796be67ceb27a643929b09ca",
+      "docs/source/notebooks/HierarchicalModels.ipynb": "a9eddde9511b11ecca77bd57f3b520cb30867ccecbb70bfdc3ff7a3932251747",
+      "docs/source/notebooks/WorkedExample.ipynb": "4c845a6fa7f1d98937a2d5e486c3d6d2ac4e9375c49e0453fd1abd6d23ab51d4"
+    }
+  },
+  "niagara_source_sha256": {
+    "__init__.py": "75d9434263768dce39478c15ca1c5600e9caabd0888424682ec1f045636b82fc",
+    "backend.py": "8ff413199eceb25ba7b810414ccd5279aa367d8b58b2662af144599176629b39",
+    "caustics.py": "940ff51b1fc4691dc8f69e7b87aa7d44c8ac59d6cba183f1e94e6f65b76a60c1",
+    "compiler.py": "0c9e487f86e172066ee5b8a37d78a9d58a7a6d9001045972fb3d7b551f94d3c3",
+    "errors.py": "acfd29bf72465cea1497ad96b1585b997c013e6573f8768c0532544fed51e03b",
+    "execution.py": "719338b253e71ea85373b7c2f5a36f1a7afb2e019c68cd098d991d0bc76229ea",
+    "guards.py": "daa8d5b163f0e17405fdf9563370d86e6cd9959d5549ec52077f416124ebb63d",
+    "placement.py": "946f35253347e36e1ff9097a2783b3a1839e510dc886b6698364d21c3d8d0b4a",
+    "replay.py": "0624fd41530b2b3978a33fdce261395d2200a9a37a1a764b1f7656aabd7596b0",
+    "sampling.py": "12977e193bd9b5428d929b8b7208367c6effd7ffc5f2135233f74c5a71e6b31a",
+    "visualization.py": "66aeaa2864a5adb48a3818052b59aacfd358447bdca883ac3f806843ce7d9823"
+  },
+  "runner_sha256": "91e2bca0a728e036b2b1e0d04e2a0e551957db2f646b7af599ae3fd86875c5a2",
+  "adapter_sha256": "18a0e2bba36380bd6a3e9805463533a720e6c219803061dfc995a7af04b011c2",
+  "test_sha256": {
+    "tests/test_backend.py": "9811879b5a717ecad04bc060e65604e84a1bae9c8284c1a3807fadf7ec6e7360",
+    "tests/test_caustics.py": "167f274fc52591ef7ca1d7151b265e32a2a25eb1d5af57c6756edd9740024a78",
+    "tests/test_compiler.py": "9ca563fac34df54e02d6f257786af9ffabab313102eb8ce80c1102223853d87f",
+    "tests/test_factory_devices.py": "67a5f860a4f6a5e1d25457b32c7605eacd26e2b0ce17e8ebdf8853798c0c9143",
+    "tests/test_regressions.py": "745ef4e5ff038f19ae7d498ff83403c9093b514d8c36f6a10ce47c9a6c575435",
+    "tests/test_runtime.py": "268a848f1f1dc1765d570b5d91789c1c1a82cb4c45b95ac394510109ccd3b281",
+    "tests/test_sampling.py": "503c34b87e3c4fd1364a467820ec5ea705d3f47543b96f782cdcaaeef21761fd",
+    "tests/test_sampling_contracts.py": "ea69fb350c4b61d5206daa24befbb84b7a973ab5f19d0b7153bb39e92e8f2057",
+    "tests/test_upstream_adapter.py": "d02bf0b26620eadd7358abbbd77b449d378b27f518a8a242fdc5f7c6b6f60002",
+    "tests/test_upstream_contracts.py": "7b40730ac4298b8212037c4e54db8fdb2c45631b5172fbb04f7717da0cb64b5f",
+    "tests/test_valid_placement.py": "26cfc7a1700e976cb07c015610b3ec399703d630ebfdf1e4a66c668720ace8ca",
+    "tests/test_visualization.py": "a67dab41d346bfdd580847c1b6e4df9bed2e5ef203605cf3cdee08ed976040a7"
+  },
+  "wheel": {
+    "path": "G:\\Qsync\\Maitrise\\Projects\\Niagara\\results\\0.7.0\\upstream_complete\\distributions\\niagara-0.7.0-py3-none-any.whl",
+    "sha256": "5b6d806b993d14f8647d396aa692794c265dca432360f4cf82529c5bfc291db3"
+  },
+  "checks": {
+    "identical_954_upstream_test_ids": true,
+    "all_18_upstream_sources_unchanged": true,
+    "installed_caskade_unchanged": true,
+    "runtime_sources_unchanged_during_run": true,
+    "all_11_runtime_files_match_tested_wheel": true,
+    "all_contexts_and_routed_calls_restored": true,
+    "zero_native_forward_fallbacks": true,
+    "all_selected_compiled_checks_passed": true,
+    "changed_input_and_floating_gradient_checks_passed": true
+  },
+  "historical_evidence": "Initial 0.7.0 MALA chains and guide outputs, and 0.6 resource plots retain original source hashes; full scientific MALA/performance were not rerun for this qualification."
+}

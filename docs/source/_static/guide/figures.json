@@ -1,0 +1,186 @@
+{
+  "versions": {
+    "niagara": "0.7.0",
+    "caskade": "1.1.5",
+    "caustics": "1.7.1",
+    "torch": "2.12.0+cu126"
+  },
+  "dtype": "torch.float64",
+  "size": 64,
+  "pixel_scale_arcsec": 0.05,
+  "parameter_names": [
+    "mass.x0",
+    "mass.y0",
+    "mass.q",
+    "mass.phi",
+    "mass.Rein",
+    "shear.gamma_1",
+    "shear.gamma_2",
+    "source.x0",
+    "source.y0",
+    "source.q",
+    "source.phi",
+    "source.n",
+    "source.Re",
+    "source.Ie",
+    "light.x0",
+    "light.y0",
+    "light.q",
+    "light.phi",
+    "light.n",
+    "light.Re",
+    "light.Ie"
+  ],
+  "source_home": "cuda:1",
+  "output_home": "cuda:0",
+  "image_max_abs_error": 0.0,
+  "gradient_max_abs_error": 2.842170943040401e-14,
+  "gradient_error_parameter": "source.Ie",
+  "gradient_reference_magnitude_at_max": 173.33295959322237,
+  "gradient_abs_error_quantiles": [
+    0.0,
+    4.440892098500626e-16,
+    7.105427357601002e-15,
+    2.842170943040401e-14
+  ],
+  "gradient_relative_l2": 5.963602299131181e-17,
+  "gpu_devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "d6b66763-30ad-b999-effc-189e8a805489"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "uuid": "cf4a6b09-c71f-415a-a9a1-3a1aa62541e9"
+    }
+  ],
+  "routing": {
+    "transfers": {
+      "cuda:0->cuda:1": 6,
+      "cuda:1->cuda:0": 2
+    },
+    "bytes": {
+      "cuda:0->cuda:1": 157136,
+      "cuda:1->cuda:0": 78400
+    },
+    "observed_calls": [
+      [
+        "sim.lens.lenses.mass",
+        "cuda:0"
+      ],
+      [
+        "sim.lens.lenses.shear",
+        "cuda:0"
+      ],
+      [
+        "sim.lens",
+        "cuda:0"
+      ],
+      [
+        "sim.lens",
+        "cuda:0"
+      ],
+      [
+        "sim.source",
+        "cuda:1"
+      ],
+      [
+        "sim.lens_light",
+        "cuda:0"
+      ],
+      [
+        "sim",
+        "cuda:0"
+      ],
+      [
+        "sim.lens.lenses.mass",
+        "cuda:0"
+      ],
+      [
+        "sim.lens.lenses.shear",
+        "cuda:0"
+      ],
+      [
+        "sim.lens",
+        "cuda:0"
+      ],
+      [
+        "sim.lens",
+        "cuda:0"
+      ],
+      [
+        "sim.source",
+        "cuda:1"
+      ],
+      [
+        "sim.lens_light",
+        "cuda:0"
+      ],
+      [
+        "sim",
+        "cuda:0"
+      ]
+    ],
+    "homes": {
+      "sim": "cuda:0",
+      "sim.psf": "cuda:0",
+      "sim.x0": "cuda:0",
+      "sim.y0": "cuda:0",
+      "sim.lens": "cuda:0",
+      "sim.lens.cosmology": "cuda:0",
+      "sim.lens.cosmology.h0": "cuda:0",
+      "sim.lens.cosmology.critical_density_0": "cuda:0",
+      "sim.lens.cosmology.Om0": "cuda:0",
+      "sim.lens.z_s": "cuda:0",
+      "sim.lens.z_l": "cuda:0",
+      "sim.lens.lenses": "cuda:0",
+      "sim.lens.lenses.mass": "cuda:0",
+      "sim.lens.lenses.mass.z_s": "cuda:0",
+      "sim.lens.lenses.mass.z_l": "cuda:0",
+      "sim.lens.lenses.mass.x0": "cuda:0",
+      "sim.lens.lenses.mass.y0": "cuda:0",
+      "sim.lens.lenses.mass.q": "cuda:0",
+      "sim.lens.lenses.mass.phi": "cuda:0",
+      "sim.lens.lenses.mass.Rein": "cuda:0",
+      "sim.lens.lenses.shear": "cuda:0",
+      "sim.lens.lenses.shear.z_s": "cuda:0",
+      "sim.lens.lenses.shear.z_l": "cuda:0",
+      "sim.lens.lenses.shear.x0": "cuda:0",
+      "sim.lens.lenses.shear.y0": "cuda:0",
+      "sim.lens.lenses.shear.gamma_1": "cuda:0",
+      "sim.lens.lenses.shear.gamma_2": "cuda:0",
+      "sim.source": "cuda:1",
+      "sim.source.x0": "cuda:1",
+      "sim.source.y0": "cuda:1",
+      "sim.source.q": "cuda:1",
+      "sim.source.phi": "cuda:1",
+      "sim.source.n": "cuda:1",
+      "sim.source.Re": "cuda:1",
+      "sim.source.Ie": "cuda:1",
+      "sim.lens_light": "cuda:0",
+      "sim.lens_light.x0": "cuda:0",
+      "sim.lens_light.y0": "cuda:0",
+      "sim.lens_light.q": "cuda:0",
+      "sim.lens_light.phi": "cuda:0",
+      "sim.lens_light.n": "cuda:0",
+      "sim.lens_light.Re": "cuda:0",
+      "sim.lens_light.Ie": "cuda:0"
+    }
+  },
+  "source_sha256": {
+    "scripts/render_guide_assets.py": "c126d72bc23e9cbe555e645e0811b72709942fcba427ee8f056a6fd0d7400211",
+    "src/niagara/__init__.py": "75d9434263768dce39478c15ca1c5600e9caabd0888424682ec1f045636b82fc",
+    "src/niagara/backend.py": "98d3d85602d01be06d815f0a016d6a45238584b4dc7bd24daf35e375e5156f0f",
+    "src/niagara/caustics.py": "940ff51b1fc4691dc8f69e7b87aa7d44c8ac59d6cba183f1e94e6f65b76a60c1",
+    "src/niagara/compiler.py": "0c9e487f86e172066ee5b8a37d78a9d58a7a6d9001045972fb3d7b551f94d3c3",
+    "src/niagara/errors.py": "acfd29bf72465cea1497ad96b1585b997c013e6573f8768c0532544fed51e03b",
+    "src/niagara/execution.py": "719338b253e71ea85373b7c2f5a36f1a7afb2e019c68cd098d991d0bc76229ea",
+    "src/niagara/guards.py": "daa8d5b163f0e17405fdf9563370d86e6cd9959d5549ec52077f416124ebb63d",
+    "src/niagara/placement.py": "09555a1efd8e260e2a7b1a48523d766c32d89f5e6b28b8847206a145219e4004",
+    "src/niagara/replay.py": "0624fd41530b2b3978a33fdce261395d2200a9a37a1a764b1f7656aabd7596b0",
+    "src/niagara/sampling.py": "12977e193bd9b5428d929b8b7208367c6effd7ffc5f2135233f74c5a71e6b31a",
+    "src/niagara/visualization.py": "66aeaa2864a5adb48a3818052b59aacfd358447bdca883ac3f806843ce7d9823"
+  }
+}

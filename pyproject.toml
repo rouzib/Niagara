@@ -1,0 +1,92 @@
+[build-system]
+requires = ["hatchling>=1.26"]
+build-backend = "hatchling.build"
+
+[project]
+name = "niagara"
+dynamic = ["version"]
+description = "Explicit multi-GPU execution and tensor compilation for Caskade simulators"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{name = "Nicolas Payot"}]
+keywords = ["caskade", "caustics", "pytorch", "multi-gpu", "differentiable-simulation"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = ["caskade>=1.1.5,<2", "torch>=2.12,<2.13"]
+
+[project.optional-dependencies]
+compile = [
+    "triton-windows>=3.7,<3.8; sys_platform == 'win32'",
+    "triton>=3.7,<3.8; sys_platform == 'linux'",
+]
+caustics = ["caustics>=1.7.1,<2", "astropy>=7,<8"]
+visualization = ["graphviz>=0.20", "matplotlib>=3.8"]
+mcmc = [
+    "caustics>=1.7.1,<2", "astropy>=7,<8", "scipy>=1.11", "numpy>=1.26,<2",
+    "emcee>=3.1,<4", "arviz>=0.18,<0.23", "pandas>=2.1,<3", "xarray>=2023.7,<2025",
+]
+full = [
+    "triton-windows>=3.7,<3.8; sys_platform == 'win32'",
+    "triton>=3.7,<3.8; sys_platform == 'linux'",
+    "caustics>=1.7.1,<2", "astropy>=7,<8", "graphviz>=0.20", "matplotlib>=3.8",
+    "scipy>=1.11", "numpy>=1.26,<2", "emcee>=3.1,<4", "arviz>=0.18,<0.23",
+    "pandas>=2.1,<3", "xarray>=2023.7,<2025",
+]
+docs = [
+    "sphinx>=7.4,<9", "myst-nb>=1.1,<2", "pydata-sphinx-theme>=0.15,<0.17",
+    "sphinx-copybutton>=0.5,<1", "sphinx-design>=0.6,<1",
+    "sphinxcontrib-bibtex>=2.6,<3", "sphinxcontrib-mermaid>=2.1,<3",
+]
+dev = ["pytest>=8,<10", "pytest-cov>=6,<8", "ruff>=0.14", "build>=1.2", "twine>=6", "nbclient>=0.10", "ipykernel>=6"]
+
+[tool.hatch.version]
+path = "src/niagara/__init__.py"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/niagara"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src/niagara", "/tests", "/examples", "/benchmarks", "/scripts",
+    "/docs", "/.github", "/.readthedocs.yaml", "/README.md", "/LICENSE",
+    "/THIRD_PARTY_NOTICES.md", "/NOTICE", "/CHANGELOG.md", "/CONTRIBUTING.md",
+    "/CITATION.cff", "/pyproject.toml", "/AGENTS.md", "/log.md", "/.gitignore", "/.gitattributes",
+]
+exclude = ["/docs/build", "/docs/_build", "**/__pycache__", "**/.ipynb_checkpoints"]
+
+[tool.hatch.build.targets.sdist.force-include]
+"docs/source/_static/results" = "docs/source/_static/results"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "gpu: requires two physical CUDA devices",
+    "caustics: optional public Caustics integration",
+    "slow: complete scientific inference or resource benchmark",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["docs/source/_static/vendor", "docs/reports", "results", "agents_scripts"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP", "SIM"]
+ignore = ["B905"]  # Keep Caskade's ordinary zip semantics; metadata is guarded separately.
+
+[tool.coverage.run]
+branch = true
+source = ["niagara"]
+
+[tool.coverage.report]
+show_missing = true
+

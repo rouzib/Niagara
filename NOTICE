@@ -1,0 +1,15 @@
+﻿Niagara adds explicit device placement and tensor-program execution to Caskade.
+
+Caskade is by Connor Stone and Alexandre Adam, under the MIT license.
+Niagara uses Caskade's public Module, Param, ActiveContext and OverrideParam APIs.
+The Caskade copyright and MIT license are retained in LICENSE.
+
+Caustics supplies the scientific lensing and image simulators. The inference
+example follows its image-fitting tutorial with a 21-parameter model:
+https://github.com/Ciela-Institute/caustics
+https://caustics.readthedocs.io/en/latest/examples/Example_ImageFit_MCMC.html
+
+PyTorch provides tensor computation, differentiation, FX, functional transforms
+and compiler backends. These libraries remain separately installed dependencies.
+
+Bundled documentation asset licenses are listed in THIRD_PARTY_NOTICES.md.
