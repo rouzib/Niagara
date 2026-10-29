@@ -27,9 +27,7 @@ python -m pip install -e ".[full,dev,docs]"
 | --- | --- |
 | Core placement/capture with pip Caskade | Base installation |
 | Fused GPU kernels, including Windows | `compile` |
-| Caustics examples | `caustics` |
 | Graphs and figures | `visualization` |
-| Inference workflows | `mcmc` |
 | All runtime/scientific features | `full` |
 | Tests, packaging and notebooks | `dev` |
 | Documentation site | `docs` |
