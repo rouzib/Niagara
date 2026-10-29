@@ -35,3 +35,17 @@ examples
 scripts
 reports
 benchmarks
+
+# Source and historical assets required by the published documentation.
+!examples/
+!examples/*.py
+!examples/niagara_examples/
+!examples/niagara_examples/*.py
+!docs/reports/
+docs/reports/*
+!docs/reports/README.md
+!docs/source/_static/results/
+docs/source/_static/results/*
+!docs/source/_static/results/0.6.0/
+docs/source/_static/results/0.6.0/*
+!docs/source/_static/results/0.6.0/*.svg
