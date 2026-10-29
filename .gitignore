@@ -25,4 +25,13 @@ reference_wheels/
 *.pth
 *.log
 !docs/reports/**
-
+AGENTS.md
+CHANGELOG.md
+log.md
+test_save_append.h5
+test_save_batched_append.h5
+test_save_notappend.h5
+examples
+scripts
+reports
+benchmarks
