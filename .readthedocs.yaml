@@ -5,7 +5,9 @@ build:
     python: "3.12"
   jobs:
     pre_install:
-      - python -m pip install --index-url https://download.pytorch.org/whl/cpu "torch>=2.12,<2.13"
+      - python -m pip install --upgrade pip
+      # Pin the CPU build while allowing its dependencies to resolve from PyPI.
+      - python -m pip install --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple "torch==2.12.1+cpu"
 sphinx:
   configuration: docs/source/conf.py
   fail_on_warning: true
