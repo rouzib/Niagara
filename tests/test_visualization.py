@@ -124,6 +124,27 @@ def test_execution_view_reports_scopes_devices_shapes_and_can_hide_them(scene):
     assert not scopes.intersection(hidden_labels)
 
 
+def test_model_without_parameters_keeps_child_containers_connected():
+    _require_dot()
+    model = ck.Module("stack")
+    model.components = (Component("left"), Component("right"))
+    container = model.children["components"]
+    with ng.assign_devices(model, ng.DevicePlan(default="cpu")) as placement:
+        image = _svg(ng.draw_model(model, placement=placement, parameters=False, devices=True))
+    assert _node_titles(image) == {
+        str(id(node)) for node in (model, container, *container.children.values())
+    }
+    edges = {
+        element.find(SVG + "title").text
+        for element in image.iter(SVG + "g")
+        if element.get("class") == "edge"
+    }
+    assert f"{id(model)}->{id(container)}" in edges
+    for child in container.children.values():
+        assert f"{id(container)}->{id(child)}" in edges
+    assert "cpu" in _labels(image)
+
+
 def test_schedule_exports_dependency_levels_on_cpu_lane(scene, tmp_path):
     pytest.importorskip("matplotlib")
     import matplotlib
@@ -201,3 +222,6 @@ def test_cpu_profile_exports_only_measured_iterations_and_real_operations(tmp_pa
     assert all(event.get("cat") == "cpu_op" for event in operations)
     assert all("Input Dims" in event.get("args", {}) for event in operations)
     assert not any(event.get("cat") in {"kernel", "cuda_runtime"} for event in events)
+    timeline = ng.draw_timeline(output)
+    assert all(event["device"] == "cpu" for event in timeline.events)
+    assert "No GPU activity records" in timeline.svg

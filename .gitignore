@@ -42,6 +42,16 @@ notebooks
 !examples/*.py
 !examples/niagara_examples/
 !examples/niagara_examples/*.py
+!benchmarks/
+benchmarks/*
+!benchmarks/multiplane_image.py
+!benchmarks/_baseline.py
+!benchmarks/reference/
+benchmarks/reference/*
+!benchmarks/reference/caskade_1_1_5.json
+!docs/source/notebooks/
+docs/source/notebooks/*
+!docs/source/notebooks/03_multiplane_parallel.ipynb
 !docs/reports/
 docs/reports/*
 !docs/reports/README.md

@@ -7,6 +7,7 @@ from .compiler import CompiledModel, compile_model, vmap
 from .errors import CaptureError, GuardError, NiagaraError, PlacementError
 from .execution import AsyncGraphExecutor, GraphFuture, ReplicaPool
 from .placement import DevicePlan, Placement, assign_devices
+from .timeline import ExecutionTimeline, draw_timeline
 from .visualization import draw_execution, draw_model, draw_schedule, gallery, profile
 
 __version__ = "0.7.0"
@@ -17,6 +18,7 @@ __all__ = [
     "CaptureError",
     "CompiledModel",
     "DevicePlan",
+    "ExecutionTimeline",
     "GraphFuture",
     "GuardError",
     "Module",
@@ -31,6 +33,7 @@ __all__ = [
     "draw_execution",
     "draw_model",
     "draw_schedule",
+    "draw_timeline",
     "enable",
     "forward",
     "gallery",

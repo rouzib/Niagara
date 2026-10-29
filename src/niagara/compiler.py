@@ -119,10 +119,63 @@ class _CaptureMode(TorchDispatchMode):
 
 def _fold_constants(graph):
     """Evaluate pure input-independent tensor work once, preserving RNG and detach."""
-    from torch.fx.node import map_arg
+    from torch.fx.node import Node, map_arg
+
+    # Values that can be mutated must be recreated on every execution, not
+    # turned into persistent buffers. Trace writable inputs backwards through
+    # aliases, stopping at an operator whose schema promises a fresh output.
+    # Unknown Python calls are treated conservatively as potential mutations.
+    unfoldable = set()
+
+    def mark_value(value):
+        map_arg(value, mark_node)
+
+    def schema_value(node, index, argument):
+        return node.args[index] if index < len(node.args) else node.kwargs.get(argument.name)
+
+    def mark_node(node):
+        if not isinstance(node, Node) or node in unfoldable:
+            return node
+        unfoldable.add(node)
+        if node.op == "call_function" and isinstance(node.target, torch._ops.OpOverload):
+            schema = node.target._schema
+            output_aliases = set()
+            for result in schema.returns:
+                if result.alias_info is not None:
+                    output_aliases |= result.alias_info.before_set | result.alias_info.after_set
+            for index, argument in enumerate(schema.arguments):
+                if argument.alias_info is None:
+                    continue
+                aliases = argument.alias_info.before_set | argument.alias_info.after_set
+                if output_aliases & aliases or "*" in output_aliases or "*" in aliases:
+                    mark_value(schema_value(node, index, argument))
+        elif node.op not in ("placeholder", "get_attr"):
+            for source in node.all_input_nodes:
+                mark_node(source)
+        return node
+
+    for node in graph.graph.nodes:
+        if node.op == "call_function" and isinstance(node.target, torch._ops.OpOverload):
+            schema = node.target._schema
+            if schema.is_mutable:
+                writable = [
+                    (index, argument) for index, argument in enumerate(schema.arguments)
+                    if argument.alias_info is not None and argument.alias_info.is_write
+                ]
+                if writable:
+                    for index, argument in writable:
+                        mark_value(schema_value(node, index, argument))
+                else:
+                    for source in node.all_input_nodes:
+                        mark_node(source)
+        elif node.op in ("call_function", "call_method", "call_module"):
+            for source in node.all_input_nodes:
+                mark_node(source)
 
     constants = {}
     for node in list(graph.graph.nodes):
+        if node in unfoldable:
+            continue
         if node.op == "get_attr":
             value = graph
             for part in node.target.split("."):
@@ -150,6 +203,48 @@ def _fold_constants(graph):
             constants[replacement] = value
             node.replace_all_uses_with(replacement)
             graph.graph.erase_node(node)
+    graph.graph.eliminate_dead_code()
+    graph.recompile()
+    return graph
+
+
+def _shortcut_device_copies(graph):
+    """Route consecutive copies directly when the intermediate preserves values."""
+    nodes = list(graph.graph.nodes)
+    positions = {node: index for index, node in enumerate(nodes)}
+
+    def is_copy(node):
+        return node.op == "call_function" and node.target is torch.ops.aten._to_copy.default
+
+    def may_mutate(node):
+        if node.op == "call_function" and isinstance(node.target, torch._ops.OpOverload):
+            return node.target._schema.is_mutable
+        return node.op in ("call_function", "call_method", "call_module")
+
+    for node in nodes:
+        if not is_copy(node):
+            continue
+        intermediate = node.args[0]
+        while is_copy(intermediate):
+            source = intermediate.args[0]
+            original, copied = source.meta.get("val"), intermediate.meta.get("val")
+            if not isinstance(original, torch.Tensor) or not isinstance(copied, torch.Tensor):
+                break
+            if (
+                original.dtype != copied.dtype
+                or original.layout != torch.strided
+                or copied.layout != torch.strided
+                or tuple(original.shape) != tuple(copied.shape)
+                or tuple(original.stride()) != tuple(copied.stride())
+                or intermediate.kwargs.get("pin_memory", False)
+            ):
+                break
+            # The first copy snapshots its input. A mutation between the two
+            # copies could make reading the original input later incorrect.
+            if any(may_mutate(n) for n in nodes[positions[intermediate] + 1:positions[node]]):
+                break
+            node.args = (source, *node.args[1:])
+            intermediate = source
     graph.graph.eliminate_dead_code()
     graph.recompile()
     return graph
@@ -257,7 +352,7 @@ def _capture(function, example, record_scopes, requires_grad=False):
     if lowered:
         graph.recompile()
         return _capture(graph, example, record_scopes)
-    return _fold_constants(graph)
+    return _shortcut_device_copies(_fold_constants(graph))
 
 
 class CompiledModel:

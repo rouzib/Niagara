@@ -13,3 +13,13 @@ downloaded notebook; extract the archive beside the notebook.
 The multiplane example fixes the known static redshift order and checks it
 against the stock eager formulation. Capture does not support general sorting
 of arbitrary dynamic redshift tensors.
+
+Single-image parallel light planes
+----------------------------------
+
+The :doc:`single-image guide <../user_guide/multiplane_parallel>` and
+:doc:`executed notebook <../notebooks/03_multiplane_parallel>` evaluate one
+double-source-plane scene without batching or interpolated deflections.
+
+.. automodule:: examples.niagara_examples.multiplane_image
+   :members: MultiplaneImage, ParallelMultiplaneImage, FixedRedshiftMultiplane

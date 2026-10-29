@@ -10,6 +10,7 @@ Sphinx does not start CUDA workloads while rendering documentation.
 
 01_cpu_first_simulator
 02_two_gpu_caustics
+03_multiplane_parallel
 ```
 
 Execute notebooks explicitly with the project's interpreter. The two-GPU

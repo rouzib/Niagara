@@ -29,6 +29,7 @@ placement
 compilation
 derivatives
 parallel_work
+multiplane_parallel
 inference
 visualization
 performance

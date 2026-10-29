@@ -8,6 +8,22 @@ pytest.importorskip("caustics")
 from examples.niagara_examples.caustics import image_problem, multiplane_scene, pixelated_scene
 
 
+@GPU
+@pytest.mark.gpu
+@pytest.mark.caustics
+def test_split_noarg_image_matches_native_on_every_call():
+    """Repeated no-argument calls must not mutate a captured image buffer."""
+    p = image_problem(24, device="cuda:0")
+    expected = p.model().detach().clone()
+    plan = ng.DevicePlan(
+        "cuda:0", {"lens": "cpu", "source": "cuda:1", "lens_light": "cuda:1"}
+    )
+    with ng.enable(p.model, plan) as engine:
+        for _ in range(6):
+            torch.testing.assert_close(p.model(), expected, atol=1e-10, rtol=1e-9)
+        assert engine.programs
+
+
 @pytest.mark.caustics
 @pytest.mark.parametrize("home", ["cpu", pytest.param("cuda:0", marks=GPU)])
 def test_full_image_all_21_gradients(home):

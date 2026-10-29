@@ -9,7 +9,10 @@ versions of cloned inputs to detect mutation during capture.
 
 Preparation can evaluate pure subgraphs that are independent of dynamic inputs
 and store their results as buffers. Static coordinates, for example, can be
-built once. Recognized seeded PyTorch tensor random operators stay in the
+built once. Values that an in-place tensor operation may mutate are not folded,
+including values reached through views; otherwise replay could change a stored
+buffer across calls. Other safe subgraphs may still be folded. Recognized
+seeded PyTorch tensor random operators stay in the
 program instead of being constant-folded. The high-level backend routes methods
 with recognized Python or NumPy randomness dynamically. Detection is incomplete:
 an unrecognized Python draw may still be frozen on replay. See the
@@ -19,6 +22,21 @@ equivalence across devices and backends has not been established.
 Stored constants can increase resident memory. Measure both runtime and memory
 when evaluating folding and capture. Vary dynamic inputs in reference checks
 to catch any input-dependent result that was accidentally stored as a constant.
+
+## Device copies
+
+Eager routing returns a module's result to its caller's home device so the
+parent can combine it with its own tensors. A parent that passes the result
+straight to another region can therefore create a detour such as CPU to
+`cuda:0` to `cuda:1`.
+
+Captured programs bypass consecutive copies when the intermediate preserves
+dtype, shape and strides, does not request pinned memory, and no operation
+between the copies may mutate the source. Copies that perform required dtype
+or layout conversions remain. An intermediate copy also remains when another
+computation uses it. The final copy still uses PyTorch's ordinary copy operation
+and autograd behavior. The dependency graph shows the resulting route; use a
+measured trace or synchronized timing to assess its performance.
 
 ## Input and execution-mode guards
 

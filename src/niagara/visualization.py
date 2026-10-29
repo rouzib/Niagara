@@ -33,7 +33,7 @@ def draw_model(
     placement : Placement or None, optional
         Applied placement to annotate; None uses the root's attached placement.
     parameters : bool, optional
-        Include parameter nodes as well as module regions.
+        Include parameter nodes as well as modules and child containers.
     devices : bool, optional
         Annotate declared device homes and color nodes when placement exists.
     labels : bool, optional
@@ -60,7 +60,7 @@ def draw_model(
     )
     _paths, aliases = graph_paths(root)
     placement = placement or getattr(root, "_niagara_placement", None)
-    shown = {n for n in aliases if parameters or isinstance(n, Module)}
+    shown = {n for n in aliases if parameters or not isinstance(n, Param)}
     for node in shown:
         style = dict(node.graphviz_style)
         label = node.name if labels else ""
@@ -262,14 +262,20 @@ def profile(
     CUDA activities are included when CUDA is available. A measured trace is
     necessary for overlap claims; an ownership graph or planned schedule alone
     is insufficient. Profiler overhead is separate from steady-state benchmarks.
+    Warmup CUDA work completes before collection starts, and measured CUDA work
+    completes before export. These boundary waits are outside the per-call ranges.
     """
     import torch
 
+    if iterations < 1 or warmup < 0:
+        raise ValueError("iterations must be positive and warmup must be nonnegative")
     for _ in range(warmup):
         function(*args)
     activities = [torch.profiler.ProfilerActivity.CPU]
     if torch.cuda.is_available():
         activities.append(torch.profiler.ProfilerActivity.CUDA)
+        for device in range(torch.cuda.device_count()):
+            torch.cuda.synchronize(device)
     with torch.profiler.profile(
         activities=activities, record_shapes=True, profile_memory=True
     ) as prof:
@@ -277,5 +283,8 @@ def profile(
             with torch.profiler.record_function("Niagara simulation"):
                 function(*args)
             prof.step()
+        if torch.cuda.is_available():
+            for device in range(torch.cuda.device_count()):
+                torch.cuda.synchronize(device)
     prof.export_chrome_trace(str(out))
     return prof.key_averages().table(sort_by="self_cpu_time_total", row_limit=20)
