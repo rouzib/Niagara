@@ -21,7 +21,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Astronomy",
     "Topic :: Scientific/Engineering :: Physics",
 ]
-dependencies = ["caskade>=1.1.5,<2", "torch>=2.12,<2.13"]
+dependencies = ["caskade>=1.1.5,<2", "torch>=2.12,<2.15"]
 
 [project.optional-dependencies]
 compile = [
